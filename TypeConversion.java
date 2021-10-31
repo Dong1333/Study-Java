@@ -27,7 +27,7 @@ public class TypeConversion {
 	      else 
 	         System.out.println("숫자를 다시 입력하세요.");
 	      
-         // 출력 시작 (판별 횟수 만큼 짝 출력)
+         // 출력 시작 (판별 횟수 만큼 짝 출력) 제발 
 	      if(count == 2) 
 	         System.out.println("박수 짝짝");
 	      else if(count == 1)
