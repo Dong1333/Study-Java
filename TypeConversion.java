@@ -32,7 +32,6 @@ public class TypeConversion {
 	         System.out.println("박수 짝짝");
 	      else if(count == 1)
 	         System.out.println("박수 짝");
-	      else
 	         System.out.println("조건을 만족하지 않음.");
 	   }
   }
