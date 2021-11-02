@@ -101,7 +101,7 @@ public class study {
 	      int tens_digit = num / 10;  // 십의 자리(몫 구하기)
 	      int one_digit = num % 10;   // 일의 자리(나머지 구하기)
 	      
-	      // 조건 시작 (십의 자리 판별 후 일의 자리 판별).
+	      // 조건 시작 (십의 자리 판별 후 일의 자리 판별)
 	      if(num >= 10 && num <= 99) {
 	      if(tens_digit == one_digit ) { 
 	    	  System.out.println("Yes! 10의 자리와 1의 자리가 같습니다.");
