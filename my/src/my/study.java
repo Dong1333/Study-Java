@@ -1,4 +1,5 @@
-// 1~99 사이의 숫자를 입력 받아 3,6,9 게임 진행.  .  
+package my;
+// 1~99 사이의 숫자를 입력 받아 3,6,9 게임 진행. 
 // 예) 13 == "박수 짝", 36 == "박수 짝짝"
 /*import java.util.Scanner;
 public class study {
@@ -170,7 +171,7 @@ public class A{
 			}
 		}
 	}
-	}*/
+	}
 
 import java.util.Scanner;
 public class study {
@@ -181,7 +182,7 @@ public class study {
 		
 		int money = scanner.nextInt();
 		
-		int fifty_thousand =
+		int fifty_thousand = money/50000;
 		int ten_thousand =
 		int one_thousand =
 		int one_hundred =
@@ -190,5 +191,27 @@ public class study {
 		int one =
 		
 		
+	 }
+}*/
+
+import java.util.Scanner;
+public class study {
+	 public static void main(String args[]) {
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.print("정수를 입력하시오 >>> ");
+		
+		int first_num = scanner.nextInt();
+		int second_num = scanner.nextInt();
+		int sum = 0;
+		//조건 시작 초기값 없음
+		for( ; first_num <= second_num; first_num++ ) {
+		 	System.out.print(first_num);
+		 	sum += first_num;
+		    if(first_num < second_num) { // 두 수가 같아지면 출력 금지 
+		    	System.out.print(first_num + "+");}
+		    else if(first_num == second_num) { // 두 수가 같아지면 출력 .
+		 	    System.out.print(first_num + "=" + sum);}
+		}
 	 }
 }
