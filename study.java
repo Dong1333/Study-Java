@@ -1,4 +1,4 @@
-// 1~99 사이의 숫자를 입력 받아 3,6,9 게임 진행.    
+// 1~99 사이의 숫자를 입력 받아 3,6,9 게임 진행.  .  
 // 예) 13 == "박수 짝", 36 == "박수 짝짝"
 /*import java.util.Scanner;
 public class study {
@@ -34,11 +34,11 @@ public class study {
 	         System.out.println("박수 짝");
 	         System.out.println("조건을 만족하지 않음.");
 	   }
-  }*/
+  }
 
 //정수를 3개를 입력 받고 3개 숫자 중 중간 크기의 수를 출력 *평균값이 아니다.
 //예) 100 300 20 >> 100
-/*
+
 import java.util.Scanner;
     public class study {
 	     public static void main(String[] args) {
@@ -86,7 +86,7 @@ import java.util.Scanner;
 	    		 }
 	    	 }
 	}
-} */
+} 
 //10~99사이의 정수를 입력받아 10의자리와 1의자리가 같은지 판별하여 출력하는 프로그램
 //예) 88 >> 같음  /  86 >> 같지 않
 import java.util.Scanner;
@@ -101,7 +101,7 @@ public class study {
 	      int tens_digit = num / 10;  // 십의 자리(몫 구하기)
 	      int one_digit = num % 10;   // 일의 자리(나머지 구하기)
 	      
-	      // 조건 시작 (십의 자리 판별 후 일의 자리 판별).,,,?
+	      // 조건 시작 (십의 자리 판별 후 일의 자리 판별)
 	      if(num >= 10 && num <= 99) {
 	      if(tens_digit == one_digit ) { 
 	    	  System.out.println("Yes! 10의 자리와 1의 자리가 같습니다.");
@@ -113,4 +113,25 @@ public class study {
 	      else 
 	         System.out.println("10~99 사이의 숫자를 다시 입력하세요.");
 	   }
-  }
+  }*/
+
+import java.util.Scanner;
+public class study {
+	 public static void main(String args[]) {
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.print("금액을 입력하시오 >>> ");
+		
+		int money = scanner.nextInt();
+		
+		int fifty_thousand =
+		int ten_thousand =
+		int one_thousand =
+		int one_hundred =
+		int fifty =
+		int ten =
+		int one =
+		
+		
+	 }
+}
