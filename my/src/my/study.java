@@ -113,7 +113,6 @@ public class study {
 	      else 
 	         System.out.println("10~99 사이의 숫자를 다시 입력하세요.");
 	   }
-  }*/
 
 import java.util.Scanner;
 public class study {
