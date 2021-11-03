@@ -88,7 +88,7 @@ import java.util.Scanner;
 	}
 } 
 //10~99사이의 정수를 입력받아 10의자리와 1의자리가 같은지 판별하여 출력하는 프로그램
-//예) 88 >> 같음  /  86 >> 같지 않
+//예) 88 >> 같음  /  86 >> 같지 않음 
 import java.util.Scanner;
 public class study {
 	 public static void main(String args[]) {
@@ -113,7 +113,64 @@ public class study {
 	      else 
 	         System.out.println("10~99 사이의 숫자를 다시 입력하세요.");
 	   }
-  }*/
+  }
+  
+public class study{
+	public static void main(String[] args) {
+		
+		int i,f;
+		
+		for(i=1; i <= 15; i++)
+		{   
+			for(f=1; f <= i; f++)
+			{
+			System.out.print("*");
+			}
+			System.out.print("\n");
+		}
+	}
+}
+
+public class study{
+	public static void main(String[] args) {
+		
+		int f = 1;
+		int i = 1;
+		
+		while(i <= 15) 
+		{   
+			while(f <= i)
+			{
+			System.out.print("*");
+			f++;
+			}
+			f = 1;
+			System.out.print("\n");
+			i++;
+		}
+	}
+}
+import java.util.Scanner;
+public class A{
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+
+		for(int count = 1; count != 0; count++) {
+			System.out.print(count+") 수 입력 : ");
+			int num = scanner.nextInt();
+			if(num >0) {
+				System.out.println("양수~!!");
+			} 
+			else if(num < 0) {
+				System.out.println("음수~!!");
+			}
+			else if(num == 0) {
+				System.out.println("프로그램을 종료합니다.");
+				break;
+			}
+		}
+	}
+	}*/
 
 import java.util.Scanner;
 public class study {
