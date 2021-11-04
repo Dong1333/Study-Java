@@ -1,3 +1,4 @@
+package my;
 // 1~99 사이의 숫자를 입력 받아 3,6,9 게임 진행.  .  
 // 예) 13 == "박수 짝", 36 == "박수 짝짝"
 /*import java.util.Scanner;
@@ -124,14 +125,22 @@ public class study {
 		
 		int money = scanner.nextInt();
 		
-		int fifty_thousand =
-		int ten_thousand =
-		int one_thousand =
-		int one_hundred =
-		int fifty =
-		int ten =
-		int one =
+		int fifty_thousand = money/50000;
+		int ten_thousand = (money - fifty_thousand * 50000) / 10000;
+		int one_thousand = (money - fifty_thousand * 50000 - ten_thousand * 10000) / 1000;
+		int one_hundred = (money - fifty_thousand * 50000 - ten_thousand * 10000 - one_thousand * 1000) / 100;
+		int fifty = (money - fifty_thousand * 50000 - ten_thousand * 10000 - one_thousand * 1000 - one_hundred * 100) / 50;
+		int ten = (money - fifty_thousand * 50000 - ten_thousand * 10000 - one_thousand * 1000 - one_hundred * 100 - fifty * 50) / 10;
+		int one = (money - fifty_thousand * 50000 - ten_thousand * 10000 - one_thousand * 1000 - one_hundred * 100 - fifty * 50 - ten * 10) / 1;
 		
+		System.out.println("금액 " + money + "원");
+	    System.out.println("5만원권 " + fifty_thousand + "장");
+	    System.out.println("1만원권 " + ten_thousand + "장");
+	    System.out.println("1천원권 " + one_thousand + "장");
+	    System.out.println("100원 " + one_hundred + "개");
+	    System.out.println("50원 " + fifty + "개");
+	    System.out.println("10원 " + ten + "개");
+	    System.out.println("1원 " + one+ "개");
 		
 	 }
 }
