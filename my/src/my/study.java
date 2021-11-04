@@ -124,7 +124,7 @@ public class study {
 		System.out.print("금액을 입력하시오 >>> ");
 		
 		int money = scanner.nextInt();
-		
+	
 		System.out.println("금액 " + money + "원");
 	    System.out.println("5만원권 " + money/50000 + "장");
 	    System.out.println("1만원권 " + money%50000/10000 + "장");
