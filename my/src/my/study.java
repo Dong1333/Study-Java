@@ -126,7 +126,7 @@ public class study {
 		
 		int money = scanner.nextInt();
 	    
-	    //바로 출력하기 상위 지페(동전)계산 후 '나머지'의 값으로 남은 돈의 '몫'을 구하 
+	    //바로 출력하기 상위 지페(동전)계산 후 '나머지'의 값으로 남은 돈의 '몫'을 구한다.
 		System.out.println("금액 " + money + "원");
 	    System.out.println("5만원권 " + money/50000 + "장");
 	    System.out.println("1만원권 " + money%50000/10000 + "장");
