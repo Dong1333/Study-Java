@@ -138,7 +138,7 @@ public class study {
 		
 	    scanner.close();
 	 }
-}*/
+}
 
 //삼각형의 변의 길이를 나타내는 정수 3개를 받아서 삼각형 생성여부를 판별 *두변의 합이 다른 한변의 크기보다 커야한다.
 //예) 변의길이 3개 >>> 3 4 5     삼각형이 됩니다.
@@ -159,6 +159,27 @@ public class study{
 		}
 		else { 
 			System.out.println("삼각형이 안됩니다.");
+		}
+		scanner.close();
+	}
+}*/
+
+import java.util.Scanner;
+public class study{
+	public static void main(String args[]){
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.print("점 (x,y)의 좌표를 입력하시오 >>> ");
+		
+		int x = scanner.nextInt();
+		int y = scanner.nextInt();
+
+		
+		if( x >= 100 && x <= 200 && y >= 100 && x <= 200) {
+			System.out.printf("(%d, %d)는 사각형 안에 있습니다.",x ,y);
+		}
+		else { 
+			System.out.printf("(%d, %d)는 사각형 안에 없습니다.",x ,y);
 		}
 		scanner.close();
 	}
