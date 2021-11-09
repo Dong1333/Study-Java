@@ -195,12 +195,12 @@ public class study{
 		
 		System.out.print("연산 >>> ");
 		
-		//x값, y값 받기  
+		//x값, 문자열로 연산 값, y값 받기  
 		int x = scanner.nextInt();
 		String sign = scanner.next();
 		int y = scanner.nextInt();
 
-
+            //문자열 부분 비교 (+, -, *, /) 각 해당 되는 연산 진
 			if(sign.equals("+") == true) {
 			System.out.printf(x + sign + y + "의 계산 결과는 %d", x + y );
 			}
@@ -211,7 +211,7 @@ public class study{
 				System.out.printf(x + sign + y + "의 계산 결과는 %d", x * y );
 			}
 			else if(sign.equals("/") == true) {
-				if(x == 0 || y == 0) {
+				if(x == 0 || y == 0) {    // x, y 중 하나가 0값일 경우 나누기 연산 진행불가
 					System.out.printf("0으로 나눌 수 없습니다.");
 				}
 				else
