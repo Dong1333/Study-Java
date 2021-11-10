@@ -186,7 +186,7 @@ public class study{
 		}
 		scanner.close();
 	}
-}*/
+}
 
 import java.util.Scanner;
 public class study{
@@ -220,4 +220,58 @@ public class study{
 			}					
 	}
 
+
+//정수 배열 10개를 선언 후 정수 10개를 입력받고 
+import java.util.Scanner;
+public class study{
+	public static void main(String args[]){
+		Scanner scanner = new Scanner(System.in);
+		
+		int arr[] = new int[10];
+		System.out.print("정수 10개를 입력하시오 >>> ");
+		for(int i = 0; i < 10; i++) {
+		arr[i] = scanner.nextInt();
+		System.out.println("배열 "+i+"번째 숫자값 + 1000 = " + (arr[i] + 1000));
+		}				
+	}
+}
+
+import java.util.Scanner;
+public class study{
+	public static void main(String args[]){
+        int arr[] = {10, 20, 30, 40, 50};
+        int sum = 0;
+		
+        for(int i = 0; i < arr.length; i++) {
+        	sum += arr[i];
+        }       
+		System.out.println("sum = "+ sum);				
+	}
+}*/
+
+import java.util.Scanner;
+public class study{
+	public static void main(String args[]){
+		Scanner scanner= new Scanner(System.in);
+        int counter[] = new int[4];
+        int answer [] = new int[11];
+        
+        System.out.print("11개 1~4 사이의 정수를 입력하시오 >>> ");
+        
+        for(int i = 0; i < 11; i++) {
+        	answer [i] = scanner.nextInt();
+        }
+        for(int i = 0; i < answer.length; i++) {
+        	counter[answer[i]-1]++;
+        }       
+         
+        for(int i = 0; i < counter.length; i++) {
+        	System.out.print((i + 1) + "의 개수만큼 별 찍기 : ");
+        	for(int a = 0; a < counter[i]; a++) {
+        		System.out.print("*");
+        	}
+        	   System.out.println();      	
+        }   
+	}
+}
 
