@@ -236,6 +236,7 @@ public class study{
 	}
 }
 
+//과제 m
 import java.util.Scanner;
 public class study{
 	public static void main(String args[]){
@@ -247,8 +248,8 @@ public class study{
         }       
 		System.out.println("sum = "+ sum);				
 	}
-}*/
-
+}
+//과제 n
 import java.util.Scanner;
 public class study{
 	public static void main(String args[]){
@@ -256,7 +257,7 @@ public class study{
         int counter[] = new int[4];
         int answer [] = new int[11];
         
-        System.out.print("11개 1~4 사이의 정수를 입력하시오 >>> ");
+        System.out.print("1~4 사이의 정수를 11개 입력하시오 >>> ");
         
         for(int i = 0; i < 11; i++) {
         	answer [i] = scanner.nextInt();
@@ -274,4 +275,41 @@ public class study{
         }   
 	}
 }
+//과제 o
+import java.util.Scanner;
+public class study{
+	public static void main(String args[]){
+		Scanner scanner= new Scanner(System.in);
+        int max = 0;
+        int num [] = new int[5];
+        
+        System.out.print("5개의 정수를 입력하시오 >>> ");
+        
+        for(int i = 0; i < num.length; i++) {
+        	num [i] = scanner.nextInt();
+            if(num[i] > max)
+            	max = num[i];
+        }   
+        		System.out.println("5개의 정수 중 가장 큰 값은 = "+max);  	
+        }   
+	}*/
+import java.util.Scanner;
+public class study{
+	public static void main(String args[]){
+		Scanner scanner= new Scanner(System.in);
+        int answer [] = new int[5];
+        
+        System.out.print("1~10 사이의 정수를 5개 입력하시오 >>> ");
+        
+        for(int i = 0; i < answer.length; i++) {
+        	answer [i] = scanner.nextInt();
+        	for(int a = 0; a < answer[i]; a++ ) {
+        		System.out.print("@");
+        	}
+        	   System.out.println();      	
+        }   
+	}
+}
+
+
 
