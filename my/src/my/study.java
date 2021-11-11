@@ -162,8 +162,10 @@ public class study{
 		}
 		scanner.close();
 	}
-}*/
-
+}
+//2차원 평면에서 직사각형은 왼쪽 상단 모서리와 오른쪽 하단 모서리의 두점으로 표현한다 (100,100)과 (200,200)의
+//두점으로 이루어진 사각형이 있을때, (x,y)값을 입력받고 직사각형 안에 있는지 판별하라.
+//예) 150, 200     있습니다,   50, 70   없습니다.
 import java.util.Scanner;
 public class study{
 	public static void main(String args[]){
@@ -171,10 +173,11 @@ public class study{
 		
 		System.out.print("점 (x,y)의 좌표를 입력하시오 >>> ");
 		
+		//x값, y값 받기  
 		int x = scanner.nextInt();
 		int y = scanner.nextInt();
 
-		
+		//조건 : 200 >= (x, y) >= 100.  x, y모두 200보다 작고 100보다 크다를 표현한다. 
 		if( x >= 100 && x <= 200 && y >= 100 && x <= 200) {
 			System.out.printf("(%d, %d)는 사각형 안에 있습니다.",x ,y);
 		}
@@ -184,3 +187,129 @@ public class study{
 		scanner.close();
 	}
 }
+
+import java.util.Scanner;
+public class study{
+	public static void main(String args[]){
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.print("연산 >>> ");
+		
+		//x값, 문자열로 연산 값, y값 받기  
+		int x = scanner.nextInt();
+		String sign = scanner.next();
+		int y = scanner.nextInt();
+
+            //문자열 부분 비교 (+, -, *, /) 각 해당 되는 연산 진
+			if(sign.equals("+") == true) {
+			System.out.printf(x + sign + y + "의 계산 결과는 %d", x + y );
+			}
+			else if(sign.equals("-") == true) {
+				System.out.printf(x + sign + y + "의 계산 결과는 %d", x - y );
+			}
+			else if(sign.equals("*") == true) {
+				System.out.printf(x + sign + y + "의 계산 결과는 %d", x * y );
+			}
+			else if(sign.equals("/") == true) {
+				if(x == 0 || y == 0) {    // x, y 중 하나가 0값일 경우 나누기 연산 진행불가
+					System.out.printf("0으로 나눌 수 없습니다.");
+				}
+				else
+				System.out.printf(x + sign + y + "의 계산 결과는 %d", x / y );
+				}
+			}					
+	}
+
+
+//정수 배열 10개를 선언 후 정수 10개를 입력받고 
+import java.util.Scanner;
+public class study{
+	public static void main(String args[]){
+		Scanner scanner = new Scanner(System.in);
+		
+		int arr[] = new int[10];
+		System.out.print("정수 10개를 입력하시오 >>> ");
+		for(int i = 0; i < 10; i++) {
+		arr[i] = scanner.nextInt();
+		System.out.println("배열 "+i+"번째 숫자값 + 1000 = " + (arr[i] + 1000));
+		}				
+	}
+}
+
+//과제 m
+import java.util.Scanner;
+public class study{
+	public static void main(String args[]){
+        int arr[] = {10, 20, 30, 40, 50};
+        int sum = 0;
+		
+        for(int i = 0; i < arr.length; i++) {
+        	sum += arr[i];
+        }       
+		System.out.println("sum = "+ sum);				
+	}
+}
+//과제 n
+import java.util.Scanner;
+public class study{
+	public static void main(String args[]){
+		Scanner scanner= new Scanner(System.in);
+        int counter[] = new int[4];
+        int answer [] = new int[11];
+        
+        System.out.print("1~4 사이의 정수를 11개 입력하시오 >>> ");
+        
+        for(int i = 0; i < 11; i++) {
+        	answer [i] = scanner.nextInt();
+        }
+        for(int i = 0; i < answer.length; i++) {
+        	counter[answer[i]-1]++;
+        }       
+         
+        for(int i = 0; i < counter.length; i++) {
+        	System.out.print((i + 1) + "의 개수만큼 별 찍기 : ");
+        	for(int a = 0; a < counter[i]; a++) {
+        		System.out.print("*");
+        	}
+        	   System.out.println();      	
+        }   
+	}
+}
+//과제 o
+import java.util.Scanner;
+public class study{
+	public static void main(String args[]){
+		Scanner scanner= new Scanner(System.in);
+        int max = 0;
+        int num [] = new int[5];
+        
+        System.out.print("5개의 정수를 입력하시오 >>> ");
+        
+        for(int i = 0; i < num.length; i++) {
+        	num [i] = scanner.nextInt();
+            if(num[i] > max)
+            	max = num[i];
+        }   
+        		System.out.println("5개의 정수 중 가장 큰 값은 = "+max);  	
+        }   
+	}*/
+import java.util.Scanner;
+public class study{
+	public static void main(String args[]){
+		Scanner scanner= new Scanner(System.in);
+        int answer [] = new int[5];
+        
+        System.out.print("1~10 사이의 정수를 5개 입력하시오 >>> ");
+        
+        for(int i = 0; i < answer.length; i++) {
+        	answer [i] = scanner.nextInt();
+        	for(int a = 0; a < answer[i]; a++ ) {
+        		System.out.print("@");
+        	}
+        	   System.out.println();      	
+        }   
+	}
+}
+
+
+
