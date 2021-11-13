@@ -236,7 +236,7 @@ public class study{
 	}
 }
 
-//과제 m
+/
 import java.util.Scanner;
 public class study{
 	public static void main(String args[]){
@@ -249,7 +249,30 @@ public class study{
 		System.out.println("sum = "+ sum);				
 	}
 }
-//과제 n
+
+//과제 M : answer에 담긴 데이터만큼 '*'을 찍어 내라.
+import java.util.Scanner;
+public class study{
+	public static void main(String args[]){
+		Scanner scanner= new Scanner(System.in);
+        int counter[] = new int[4];
+        int answer [] = {1, 4, 4, 3, 1, 4, 4, 2, 1, 3, 2};
+        
+        for(int i = 0; i < answer.length; i++) {
+        	counter[answer[i]-1]++;
+        }       
+         
+        for(int i = 0; i < counter.length; i++) {
+        	System.out.print((i + 1) + "의 개수만큼 별 찍기 : ");
+        	for(int a = 0; a < counter[i]; a++) {
+        		System.out.print("*");
+        	}
+        	   System.out.println();      	
+        }   
+	}
+}
+
+//과제 N : M을 참고하여 1~4사이의 수 11개를 입력받아 받은 숫자의 개수를 세어서 개수만큼 '*'를 찍어내
 import java.util.Scanner;
 public class study{
 	public static void main(String args[]){
@@ -275,7 +298,8 @@ public class study{
         }   
 	}
 }
-//과제 o
+///과제 O : 5개의 데이터를 갖는 num배열에서 최대값을 출력하는 프로그램을 구현해라.
+  
 import java.util.Scanner;
 public class study{
 	public static void main(String args[]){
@@ -292,24 +316,40 @@ public class study{
         }   
         		System.out.println("5개의 정수 중 가장 큰 값은 = "+max);  	
         }   
-	}*/
+	}
+	
+// 과제 P : 5개의 데잍를 갖는 num 배열에서 각 데이터(수)만큼 '@'를 출
 import java.util.Scanner;
 public class study{
 	public static void main(String args[]){
 		Scanner scanner= new Scanner(System.in);
-        int answer [] = new int[5];
+        int num [] = {5,7,1,9,10} ;
         
-        System.out.print("1~10 사이의 정수를 5개 입력하시오 >>> ");
-        
-        for(int i = 0; i < answer.length; i++) {
-        	answer [i] = scanner.nextInt();
-        	for(int a = 0; a < answer[i]; a++ ) {
+        for(int i = 0; i < num.length; i++) {
+        	for(int a = 0; a < num[i]; a++ ) {
         		System.out.print("@");
         	}
         	   System.out.println();      	
         }   
 	}
-}
 
-
+}*/
+// 과제 Q : 사용자로부터 자연수를 5개 입력받아 받은 데이터 수 만큼 '@'를 출
+	import java.util.Scanner;
+	public class study{
+		public static void main(String args[]){
+			Scanner scanner= new Scanner(System.in);
+	        int answer [] = new int[5];
+	        
+	        System.out.print("5개의 자연수 입력하시오 >>> ");
+	        
+	        for(int i = 0; i < answer.length; i++) {
+	        	answer [i] = scanner.nextInt();
+	        	for(int a = 0; a < answer[i]; a++ ) {
+	        		System.out.print("@");
+	        	}
+	        	   System.out.println();      	
+	        }   
+		}
+	}
 
