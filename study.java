@@ -298,8 +298,8 @@ public class study{
         }   
 	}
 }
-///과제 O : 5개의 데이터를 갖는 num배열에서 최대값을 출력하는 프로그램을 구현해라.
-  
+
+//과제 O : 5개의 데이터를 갖는 num배열에서 최대값을 출력하는 프로그램을 구현해라.
 import java.util.Scanner;
 public class study{
 	public static void main(String args[]){
@@ -333,23 +333,111 @@ public class study{
         }   
 	}
 
-}*/
+}
+
 // 과제 Q : 사용자로부터 자연수를 5개 입력받아 받은 데이터 수 만큼 '@'를 출
-	import java.util.Scanner;
-	public class study{
-		public static void main(String args[]){
-			Scanner scanner= new Scanner(System.in);
-	        int answer [] = new int[5];
+import java.util.Scanner;
+public class study{
+	public static void main(String args[]){
+		Scanner scanner= new Scanner(System.in);
+	       int answer [] = new int[5];
 	        
-	        System.out.print("5개의 자연수 입력하시오 >>> ");
+	      System.out.print("5개의 자연수 입력하시오 >>> ");
 	        
-	        for(int i = 0; i < answer.length; i++) {
-	        	answer [i] = scanner.nextInt();
-	        	for(int a = 0; a < answer[i]; a++ ) {
-	        		System.out.print("@");
-	        	}
-	        	   System.out.println();      	
-	        }   
+	for(int i = 0; i < answer.length; i++) {
+	       	answer [i] = scanner.nextInt();
+	       	for(int a = 0; a < answer[i]; a++ ) {
+	       		System.out.print("@");
+	       	}
+	       	   System.out.println();      	
+	       }   
+	}
+}
+//for-each문 예제 (기본)
+import java.util.Scanner;
+public class study{
+	public static void main(String args[]){
+	     char days [] = {'월','화','수','목','금','토','일'};
+
+    for (char s : days) {
+    	System.out.print(s + "요일 ");
+	}
+	}
+}
+
+// 비정방향 배열 생성 예제 (기본)
+public class study{
+	public static void main(String args[]) {
+		int intArray[][] = new int [4][]; // 각 행의 레퍼런스 배열 생성
+		intArray[0] = new int [3]; // 첫째 행의 정수 3개의 배열 생성
+		intArray[1] = new int [2]; // 둘째 행의 정수 2개의 배열 생성
+		intArray[2] = new int [3]; // 셋째 행의 정수 3개의 배열 생성
+		intArray[3] = new int [2]; // 넷째 행의 정수 2개의 배열 생성
+		
+	for(int i =0; i < intArray.length; i++) { // 행에 대한 반복
+		for(int j=0; j< intArray[i].length; j++) // 열에 대한 반복
+			intArray[i][j] = (i + 1)*10 + j;
+	}
+	
+	for(int i =0; i < intArray.length; i++) {
+		for(int j=0; j< intArray[i].length; j++)
+			System.out.print(intArray[i][j] + " ");
+		System.out.println();  // 다음줄로 넘어가기 
+	 }
+	}
+}
+
+//정수 4개를 가지는 1차원 배열을 생성과 동시에 1,2,3,4로 초기화 하고, 배열을 리턴하는 makeArray()를 작성하고 
+//이 메소드로 부터 배열을 전달받아 값을 출력하라
+ 
+public class study{
+	static int[] makeArray() { // 정수형 배열을 리턴하는 메소드
+		int temp [] = new int [4]; // 배열 생성 
+		
+		for (int i = 0; i < temp.length; i++) {
+			temp [i] = i + 1; // 배열의 원소를 0, 1, 2, 3으로 초기화 
+		}
+		
+		return temp; // 배열 리턴 
+	}
+	
+	
+	
+	public static void main(String args[]) {
+		int intArray[]; // 배열 래퍼런스 변수 선언 
+		intArray = makeArray(); // 매소드로부터 배열 전달받음 
+		for (int i = 0; i < intArray.length; i++) {
+			System.out.print(intArray[i] + " "); // 배열 모든 원소 출력
+		}
+	
+	}
+}*/
+
+// 메소드를 사용하여 비정방형 배열을 생성해라.
+// 0 1 2 3
+// 4
+// 5
+// 6 7 8 9
+public class study{
+	public static void main(String args[]) {
+		int temp [][] = new int [4][];
+		temp [0] = new int [4];
+		temp [1] = new int [1];
+		temp [2] = new int [1];
+		temp [3] = new int [4];
+		
+		int a = 0;
+		
+		for(int i = 0; i < temp.length; i++) {
+			for(int j = 0; j < temp[i].length; j++) {
+				temp [i][j] = a;
+				a++;
+				System.out.print(temp[i][j] + " ");
+			}
+			System.out.println();
 		}
 	}
+		
+}
+
 
