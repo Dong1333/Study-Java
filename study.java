@@ -411,7 +411,7 @@ public class study{
 		}
 	
 	}
-}*/
+}
 
 // 메소드를 사용하여 비정방형 배열을 생성해라.
 // 0 1 2 3
@@ -419,25 +419,146 @@ public class study{
 // 5
 // 6 7 8 9
 public class study{
-	public static void main(String args[]) {
-		int temp [][] = new int [4][];
+	static int [][] makeArr() { // 2차원 배열 리턴 하는 메소드 생성 
+		int temp [][] = new int [4][]; // 행 4개인 비정방향 배열 생성
 		temp [0] = new int [4];
 		temp [1] = new int [1];
 		temp [2] = new int [1];
 		temp [3] = new int [4];
 		
-		int a = 0;
-		
+		int num = 0; // 순차적으로 대입될 초기값 
 		for(int i = 0; i < temp.length; i++) {
 			for(int j = 0; j < temp[i].length; j++) {
-				temp [i][j] = a;
-				a++;
-				System.out.print(temp[i][j] + " ");
+				temp [i][j] = num++; // 0~9까지의 값 생성 
+			}
+		}
+		return temp;
+	}
+	
+		
+	public static void main(String args[]) {
+		int arr [][];
+		arr = makeArr();  // 메소드로부터 배열 전달 받음 
+		for(int i = 0; i < arr.length; i++) {
+			for(int j = 0; j < arr[i].length; j++) {
+				System.out.print(arr[i][j] + " ");
 			}
 			System.out.println();
 		}
-	}
-		
+	}	
 }
+// try-Catch 예제 
+
+public class study{
+	public static void main(String args []) {
+		int intArr [] = new int [5];
+		
+		intArr[0] = 0;
+		
+		try {
+			for(int i = 0; i < 5; i++) {
+				intArr[i+i] = i + 1 + intArr[i]; // i = 4인경우 예외 발생.
+				System.out.println("intArr[" + i + "]" + "=" + intArr[i]);
+			}
+		}
+		catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("배열의 인덱스가 범위를 벗어났습니다.");
+		}
+	}
+}
+
+// 카드 번호 맞추기 게임(up & down) 0~99까지의 임의의 수를 가진 수를 숨기고 수를 맞추는 게임. 
+// 게임을 반복하기 위해 y/n를 묻고 n일경우 종료 시킨다.
+// 예) 숨긴숫자(87) / 게임 시작 :  44 >> up.   80 >> up.   87 맞았습니다. 
+
+import java.util.Scanner;  // 스캐너 클래스 사용 가능
+import java.util.Random;   // 랜덤 클래스 사용 가능
+
+public class study{
+	public static void main(String args[]) {
+		Scanner scanner = new Scanner(System.in);
+		
+		while(true) {  // 반복문 생성 (true)를 사용하여 무한반복 진행
+		Random r = new Random();
+		
+		// 한 게임이 끝나면 변경된 변수값들을 초기화 시켜야 함으로 첫 반복문에  초기값 지정 
+		int n = r.nextInt(100); // 0~99까지의 임의의수 생성 후  'n'변수의 저장
+		int x = 0, y = 99; // 수의 범위를 담아줄 변수 x(최저값), y(최대값) 선언
+		int count = 1; // 도전 횟수를 담을 count 변수 선언
+		
+		System.out.println("숨어있는 숫자를 찾아 보세요!");   // 첫 게임 진행
+		System.out.println(x +"에서 ~ "+ y+"사이의 숨어있습니다."); // 최소값(x) ~ 최대값(y) 안내
+		System.out.print(count +"번째 도전! >> ");
+		
+	    int num = scanner.nextInt(); // 첫 탐색 숫자 num 변수의 저장
+		while(num != n) { // num과 n이 같아지면 탈출.  num과 n이 같지 않으면 반복
+			count ++; // 이 반복문으로 들어오는 순간 2번째 도전이므로 count 증가
+			
+			if(num > 0 && num < n){ // 도전(탐색)숫자가 0보다 크고, 숨은 숫자(랜덤 수)보다 작으면 실행
+		    	System.out.println("UP! \n"); // 숨겨진 숫자는 도전 숫자보다 위에있음을 알림
+		    	if(num > x ) // 범위 외 (안내된 최저값 보다 적은) 숫자를 입력시 x값 수정없음.
+			    	x = num;
+		    }
+		    else if(num < 100 && num > n) {
+		    	System.out.println("DOWN! \n");
+		    	if(num < y ) // 범위 외 (안내된 최대값 보다 큰) 숫자를 입력시 y값 수정없음.
+		    	y = num; // 탐색 숫자의 최대값이 갑소되면 y(최대값)수정
+		    }
+			
+			System.out.println(x +"에서 ~ "+ y +"사이의 숨어있습니다."); // 수정된 최소값 ~ 최대값 안내
+			System.out.print(count +"번째 탐색 숫자는 >> ");
+		    num = scanner.nextInt(); // 숫자를 찾지 못했음으로 다시 도전.
+		}
+		//첫 반복문 탈출(숫자 찾기 성공), 2번째 반복문(게임실행중) 진행중
+	   System.out.println("\n축하합니다 " +count+"번 도전 끝에 숨겨진 숫자를 찾았습니다!!");
+	   System.out.print("숫자 찾기 게임을 다시 진행 하시겠습니까? (y/n) >>> "); // 게임 종료 여부 확인
+	   String text = scanner.next(); // 종료여부 값 저장
+	   if(text.equals("n")){ // 만약 "n"입력시 break문을 이용하여 게임종료(2번째 반복문 종료)
+		   break;
+	   }
+		}
+	  System.out.print("\n숫자 찾기 게임을 종료하겠습니다. \n다음에 또 이용해주세요!");
+	}
+}
+
+// 164쪽 2번 실습 문제 
+public class study{
+	public static void main(String args[]) {
+		int n [][] = {{1}, {1,2,3}, {1}, {1,2,3,4}, {1,2}};
+		
+		for (int i = 0; i < n.length; i++) {
+			for(int j = 0; j < n[i].length; j++) {
+			System.out.print(n[i][j] + " "); 
+			}
+			System.out.println(" ");
+		}	
+	}
+}
+// 정수를 입력 받고 받은 수만큼 '*'를 감소하면서 출력하여라
+// 예) 3 
+// * * *
+// * *
+// *
+ 
+import java.util.Scanner;
+public class study{
+	public static void main(String args[]) {
+		
+	Scanner scanner = new Scanner(System.in);
+	
+	System.out.print("정수를 입력하시오 >>> ");
+	int num = scanner.nextInt();
+	int a = num, b = num;
+	for(; a > 0;  ){
+		for(; b > 0; b--) {
+			System.out.print("*");
+		}
+		 System.out.println(" ");
+		 a--;
+		 b = a;
+	}
+	}
+}
+*/
 
 
