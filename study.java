@@ -318,7 +318,7 @@ public class study{
         }   
 	}
 	
-// 과제 P : 5개의 데잍를 갖는 num 배열에서 각 데이터(수)만큼 '@'를 출
+// 과제 P : 5개의 데잍를 갖는 num 배열에서 각 데이터(수)만큼 '@'를 출력
 import java.util.Scanner;
 public class study{
 	public static void main(String args[]){
@@ -335,7 +335,7 @@ public class study{
 
 }
 
-// 과제 Q : 사용자로부터 자연수를 5개 입력받아 받은 데이터 수 만큼 '@'를 출
+// 과제 Q : 사용자로부터 자연수를 5개 입력받아 받은 데이터 수 만큼 '@'를 출력
 import java.util.Scanner;
 public class study{
 	public static void main(String args[]){
@@ -534,12 +534,12 @@ public class study{
 		}	
 	}
 }
+
 // 정수를 입력 받고 받은 수만큼 '*'를 감소하면서 출력하여라
 // 예) 3 
 // * * *
 // * *
 // *
- 
 import java.util.Scanner;
 public class study{
 	public static void main(String args[]) {
@@ -547,20 +547,21 @@ public class study{
 	Scanner scanner = new Scanner(System.in);
 	
 	System.out.print("정수를 입력하시오 >>> ");
-	int num = scanner.nextInt();
-	int a = num, b = num;
-	for(; a > 0;  ){
-		for(; b > 0; b--) {
-			System.out.print("*");
+	
+	int num = scanner.nextInt(); // 정수값 받기
+	int a = num; // 정수값 a에 저장
+	
+    while(a > 0){ // a가 0보다 크면 반복
+		for(int i = 0; i < a; i++) {  // 0부터 a(입력받은 정수 값 / 반복 횟수)까지 반복
+			System.out.print("*"); // '*' 출력
 		}
-		 System.out.println(" ");
-		 a--;
-		 b = a;
-	}
+		 System.out.println();
+		 a--; // 반복 횟수 차감(입력 받은 수 차감
+		 }
 	}
 }
-*/
-
+// 소문자 알파벳을 하나 입력받고 a부터 그 알파벳까지 출력후 하나씩 감소하여 a만 출력되게 작성해라
+// 예 ) 받은 알파벳 >> c    결과 :    abc   ab    a
 import java.util.Scanner;
 public class study{
 	public static void main(String args[]) {
@@ -568,17 +569,97 @@ public class study{
 	Scanner scanner = new Scanner(System.in);
 	
 	System.out.print("소문자 알파벳 하나를 입력하시오  >>>  ");
+	
 	String alphabet = scanner.next();
-	char a = alphabet.charAt(0);
-	char b = alphabet.charAt(0);
-	for(int i = 97; a >= 97;  ){
-		for(int j = 97; j <= b; j++) {
-			System.out.print((char)j);
+	
+	char x = alphabet.charAt(0);  // 입력 받은 알파벳의 첫 글자 저장
+	
+    while(x >= 97){  // 숫자 97 == 문자 'a' 따라서 입력 받은 알파벳이 a(97)보다 크면 반복 
+		for(int i = 97; i <= x; i++) { // a(97)부터 입력 받은 알파벳(97이상의 정수값)까지 순차적으로 출력
+			System.out.print((char)j); // 정수형 => 문자형으로 강제 형변환
 		}
-		 System.out.println(" ");
-		 a--;
-		 b = a;
+		 System.out.println(); // 줄 바꿈
+		 x--;  // 줄 바꿈 후 입력받은 알파벳(정수 값)-1
 	}
 	}
 }
+
+// 임의의 값이 저장되어있는 2차원 배열을 출력해라.
+public class study{
+	public static void main(String args[]) {
+		
+	int arr[][] = {
+			{1,2,3}, 
+			{4,5,6}
+			};
+	
+	
+	for(int i = 0; i < arr.length; i++  ){
+		for(int j = 0; j < arr[i].length; j++) {
+			System.out.print(arr[i][j] + " ");
+		}
+		 System.out.println(" ");
+	}
+	}
+}
+
+// 양의 정수 10개를 받아 배열에 저장하고 받은 정수 중에서 3의 배수만 출력
+import java.util.Scanner;
+public class study{
+	public static void main(String args[]) {
+	
+	int arr [] = new int[10]; // 10개의 양의 정수르 받을 배열
+	int multiple_3 [] = new int[10]; // 10개의 정수중에서 3의 배수를 담을 배열  *3의 배수인 정수의 최대 개수는 10개
+		
+	Scanner scanner = new Scanner(System.in);
+	
+	
+	//입력 받기
+	System.out.print("양의 정수 10개를 입력하시오 >>> ");
+	for(int i  = 0; i < 10; i++) {
+		arr [i] = scanner.nextInt(); // 양의 정수 10개 입력 받기 
+	}
+	
+	System.out.print("3의 배수는 ");
+	//출력 하기
+	for(int j = 0 ; j < 10; j++){  // 10개 모두 3의배수 일수도 있으니 최대 10번 출력(반복)
+			if(arr[j] % 3 == 0) { // 받은 정수들 중의 3으로 나눴을때 나머지가 0인(3의 배수) 정수들을
+				multiple_3 [j] = arr[j];  // 멀티플3(3의배수) 배열에 집어 넣고
+				System.out.print( multiple_3[j] + " "); // 출력 한다 
+			}   // 만약 입력 받기 반복문 에서 조건(if)를 걸고 멀티플 배열에 넣으면 
+		}       //출력하기 반복문에서 0인(3의배수가 아닌) 정수가 출력 되거나 반복문을 한번 더 사용 해야한다
+	}
+}*/
+
+//배열과 반복문을 이용하여 정수로 된 액수를 받아 금액을(5만, 1만, 1천, 500, 100, 50, 10, 1)반환하는 프로그램 작성
+// int [] unit = {50000, 10000, 1000, 500, 100, 50, 10, 1}; 환산할 돈의 종류
+import java.util.Scanner;
+public class study{
+	public static void main(String args[]) {
+		Scanner scanner = new Scanner(System.in);
+		
+		int [] unit = {50000, 10000, 1000, 500, 100, 50, 10, 1}; // 환산할 돈의 종류
+		int [] remoney = new int[8]; // 환산한 돈의 개수를 담는 배열
+		
+		System.out.print("금액을 입력하시오 >>> ");
+		int money = scanner.nextInt(); // 금액 받기
+		
+		// 받은 돈을 환산하는 반복문
+	    for(int i = 0; i < unit.length; i++) { // 환산할 돈의 종류를 모두 검토해야 하기 때문의 unit배열의 크기만큼 반복
+	    	remoney[i] = money / unit[i]; // 받은 돈을 환산할 돈의 크기가 큰 순서대로(5만원 부터 1원까지) 나눈 나머지를 거스름돈 배열에 저장
+	    	money = money % unit[i]; // 받은 돈 나누기 환산할 돈의 나머지를 다시 받은 돈의 저장(환산할 돈은 차감하는 방식)
+	    }
+	    // 환산된 돈을 출력하는 반복문
+	    for(int i = 0; i < remoney.length; i++){ // 거슬러줄 돈의 배열 크기 만큼 반복
+	    	if(remoney[i] > 0) // 비어있는 배열은 제외(환산할 돈이 있는 금액 만) 
+	    		System.out.println(unit[i]+"원 짜리 : " + remoney[i] + "개"); // 출력
+	    }
+	}
+}
+
+
+
+
+
+
 
