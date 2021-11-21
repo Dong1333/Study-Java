@@ -709,18 +709,34 @@ public class study {
 	    
 	    
    }
-}*/
-
+}
+// 4*4 배열안에 1부터 10까지의 랜덤한 정수를 저장하고 출력.
 public class study{
 	public static void main(String args []) {
 		
-		int arr [][] = new int[4][4];
+		int arr [][] = new int[4][4];  // 4*4 배열 생성
 		
-		for (int i = 0; i < arr.length; i++) {
-			for(int j = 0; j < arr[i].length; j++) {
-				arr [i][j] = (int)(Math.random()*10 + 1);
-				System.out.print(arr[i][j]+ "  ");
-				if(j % 4 == 3)
+		for (int i = 0; i < arr.length; i++) {   // 4행 반복
+			for(int j = 0; j < arr[i].length; j++) { //4열 반복
+				arr [i][j] = (int)(Math.random()*10 + 1); // 랜덤정수를  4*4배열에 저장
+				System.out.print(arr[i][j]+ "  "); // 출력
+				if(j % 4 == 3)  // 4개 출력시 마다 줄 바꿈
+					System.out.println();
+			}
+		}
+	}
+}*/
+//4*4 배열안에 1부터 10까지의 랜덤한 정수를 저장하고 출력.
+public class study{
+	public static void main(String args []) {
+		
+		int arr [][] = new int[4][4];  // 4*4 배열 생성
+		
+		for (int i = 0; i < arr.length; i++) {   // 4행 반복
+			for(int j = 0; j < arr[i].length; j++) { //4열 반복
+				arr [i][j] = (int)(Math.random()*10 + 1); // 
+				System.out.print(arr[i][j]+ "  "); // 출력
+				if(j % 4 == 3)  // 4개 출력시 마다 줄 바꿈
 					System.out.println();
 			}
 		}
