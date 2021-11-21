@@ -629,7 +629,7 @@ public class study{
 			}   // 만약 입력 받기 반복문 에서 조건(if)를 걸고 멀티플 배열에 넣으면 
 		}       //출력하기 반복문에서 0인(3의배수가 아닌) 정수가 출력 되거나 반복문을 한번 더 사용 해야한다
 	}
-}*/
+}
 
 //배열과 반복문을 이용하여 정수로 된 액수를 받아 금액을(5만, 1만, 1천, 500, 100, 50, 10, 1)반환하는 프로그램 작성
 // int [] unit = {50000, 10000, 1000, 500, 100, 50, 10, 1}; 환산할 돈의 종류
@@ -656,6 +656,80 @@ public class study{
 	    }
 	}
 }
+// 1부터 10까지 범위의 랜덤한 정수 10개를 배열안에 저장하고 숫자들의 평균값을 출력하여라.
+public class study {
+	public static void main(String args[]) {
+		int sum = 0; // 숫자의 합계를 담을 변수 선언.
+		
+	    int arr [] = new int[10]; // 10개의 정수를 받을 배열
+	    
+	    System.out.print("랜덤한 정수들 : ");
+	    
+		for (int i = 0; i < arr.length; i++ ) {
+		   arr [i] = (int)(Math.random()* 10 + 1);  // 배열 arr에 랜덤한 정수 삽입
+		   System.out.print(arr[i] +  " "); // 정수 출력
+		   sum += arr[i]; // 정수값들의 합계 
+		}
+		
+		System.out.println("\n평군은 " + (float)sum/10);  // 10(배열 공간)으로 나누어 평균치 출력.
+		
+	}
+}
+// 정수를 몇개 저장할지 입력받아서(배열크기) 배열을 생성하고 1에서 100까지 범위의 정수를 랜덤하게 삽입하고 출력해라 
+// 단 배열에는 같은 숫자가 없도록 배열을 출력해
+// 예) 입력 >> 7      출력 >> 1 4 29 30 50 49 5
+import java.util.Scanner;
+public class study {
+	public static void main(String args []){
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.print("저장할 정수의 개수를 입력 하시오 >>> ");
+		
+	    int save = scanner.nextInt();  // 배열의 크기를 키보드로 입력 받고 저장할 변수.
+	    int arr [] = new int[save];  // 배열 생성, 크기는 이전에 입력 받았던 save 변수만큼.
+	    
+	    //랜덤정수 배열에 저장 반복문
+	    for(int i = 0; i < arr.length; i++) {
+	    	 arr[i] = (int) (Math.random()* 100 + 1); // 1부터 100까지 랜덤한 정수를 arr배열에 순차적으로 저장
+	    	 
+	    	 if(i>1) { // 첫번째 랜덤정수는 저장하고 2번째 정수부터 중복 검사 시작
+	    	     for(int j = 0; j < i; j++) { // 저장되어있는 배열 첫번째 부터(초기값 0) i(가장 최근 배열공간)까지 검사 
+	    		     if(arr [i] - arr[j] == 0) // 가장 최근 랜덤정수값과 기존에 저장되어있는 배열 검사(0부터 최근까지 / j=0, 순차적으로 증가 j++))
+	    		       i--;  //만약 검사도중 기존 저장 숫자와 같은 랜덤정수가 삽입됐으면 이전 단계로 이동(i--)
+	    		 }
+	    	 }
+	    }
+	    
+	    // 저장된 정수값 출력 반복문
+	    for(int i = 0 ; i < arr.length; i++) {
+	    	 System.out.print(arr[i] + " ");
+	    	 if (i%10 == 9 )  // 10개 출력마다 줄 바꿈(9, 19, 29, 39는 일상 수학에서는 10 20 30 40 이다.)
+		    	System.out.println();	    
+	    }
+	    
+	    
+   }
+}*/
+
+public class study{
+	public static void main(String args []) {
+		
+		int arr [][] = new int[4][4];
+		
+		for (int i = 0; i < arr.length; i++) {
+			for(int j = 0; j < arr[i].length; j++) {
+				arr [i][j] = (int)(Math.random()*10 + 1);
+				System.out.print(arr[i][j]+ "  ");
+				if(j % 4 == 3)
+					System.out.println();
+			}
+		}
+	}
+}
+
+
+
+
 
 
 
