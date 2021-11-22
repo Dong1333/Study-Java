@@ -725,21 +725,61 @@ public class study{
 			}
 		}
 	}
-}*/
-//4*4 배열안에 1부터 10까지의 랜덤한 정수를 저장하고 출력.
+}
+//4*4 배열안에 1부터 10까지의 랜덤한 정수 10개를(중복 가능) 임의의 위치에 저장하고 나머지 6개의 공간은 0(기본)이 저장된 배열을 출력.
 public class study{
 	public static void main(String args []) {
 		
 		int arr [][] = new int[4][4];  // 4*4 배열 생성
+		int count = 0;  // 10까지 저장할 정수형 변수 생성
 		
-		for (int i = 0; i < arr.length; i++) {   // 4행 반복
-			for(int j = 0; j < arr[i].length; j++) { //4열 반복
-				arr [i][j] = (int)(Math.random()*10 + 1); // 
-				System.out.print(arr[i][j]+ "  "); // 출력
+		
+		//무한반복을 위하여 while(true) 사용
+			while(true){  
+					int i = (int)(Math.random()*4 + 0);  // 0부터 4까지의 행 위치를 랜덤하게 지정
+					int j = (int)(Math.random()*4 + 0);  // 0부터 4까지의 열 위치를 랜덤하게 지정
+					//랜덤 숫자 삽입문
+				if (arr[i][j] == 0) {  //아무것도 저장되어있지 않으면  
+					arr [i][j] = (int)(Math.random()*10 + 1);	//랜덤 숫자를 저장			
+					count++; //이후 카운터증가
+					if (count == 10)   //만약 저장횟수가 10번이 도래했다면
+						break;  //강제 중지
+				}
+			}
+		
+		// 2차원 배열 출력 반문
+		for (int i = 0; i < arr.length; i++) {   // 행 출력 반복
+			for(int j = 0; j < arr[i].length; j++) { //열 출력 반복
+				System.out.print(arr[i][j]+ "   "); // 4 * 4 배열 출력
 				if(j % 4 == 3)  // 4개 출력시 마다 줄 바꿈
 					System.out.println();
 			}
 		}
+		if(i % 10 == 3 || i % 10 == 6 || i % 10 == 9)
+				count++;
+	}
+}*/
+
+public class study{
+	public static void main(String args[]) {
+		
+
+	
+		for(int i = 1; i < 100; i++) {
+			int count = 0;
+			if(i / 10 % 3 == 0)
+				count++;
+			if(i % 10 % 3 == 0)
+				count++;
+			
+			if(count == 1) 
+				System.out.println(i + " 박수 짝 \n");
+			else if(count == 2) 
+				System.out.println(i + " 박수 짝짝 \n");
+			
+		}
+		
+		
 	}
 }
 
