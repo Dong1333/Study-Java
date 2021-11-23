@@ -236,7 +236,7 @@ public class study{
 	}
 }
 
-/
+// 5개의 정수를 배열에 저장 후 그중 가장 큰 값은?
 import java.util.Scanner;
 public class study{
 	public static void main(String args[]){
@@ -676,7 +676,7 @@ public class study {
 	}
 }
 // 정수를 몇개 저장할지 입력받아서(배열크기) 배열을 생성하고 1에서 100까지 범위의 정수를 랜덤하게 삽입하고 출력해라 
-// 단 배열에는 같은 숫자가 없도록 배열을 출력해
+// 단 배열에는 같은 숫자가 없도록 배열을 출력해라
 // 예) 입력 >> 7      출력 >> 1 4 29 30 50 49 5
 import java.util.Scanner;
 public class study {
@@ -692,9 +692,9 @@ public class study {
 	    for(int i = 0; i < arr.length; i++) {
 	    	 arr[i] = (int) (Math.random()* 100 + 1); // 1부터 100까지 랜덤한 정수를 arr배열에 순차적으로 저장
 	    	 
-	    	 if(i>1) { // 첫번째 랜덤정수는 저장하고 2번째 정수부터 중복 검사 시작
+	    	 if(i>1) { // 첫번째 랜덤정수는 중복이 없으니 저장하고 2번째 정수부터 중복 검사 시작
 	    	     for(int j = 0; j < i; j++) { // 저장되어있는 배열 첫번째 부터(초기값 0) i(가장 최근 배열공간)까지 검사 
-	    		     if(arr [i] - arr[j] == 0) // 가장 최근 랜덤정수값과 기존에 저장되어있는 배열 검사(0부터 최근까지 / j=0, 순차적으로 증가 j++))
+	    		     if(arr [i] - arr[j] == 0) // 저장할 랜덤정수값과 기존에 저장되어있는 배열 중복 검사(0부터 최근까지 / j=0, 순차적으로 증가 j++))
 	    		       i--;  //만약 검사도중 기존 저장 숫자와 같은 랜덤정수가 삽입됐으면 이전 단계로 이동(i--)
 	    		 }
 	    	 }
@@ -708,6 +708,34 @@ public class study {
 	    }
 	    
 	    
+   }
+}
+// 위 문제 개선 버전
+import java.util.Scanner;
+public class study {
+	public static void main(String args []){
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.print("저장할 정수의 개수를 입력 하시오 >>> ");
+		
+	    int save = scanner.nextInt();  // 배열의 크기를 키보드로 입력 받고 저장할 변수.
+	    int arr [] = new int[save];  // 배열 생성, 크기는 이전에 입력 받았던 save 변수만큼.
+	    
+	    //랜덤정수 배열에 저장 반복문
+	    for(int i = 0; i < arr.length; i++) {
+	    	 arr[i] = (int) (Math.random()* 100 + 1);// 1부터 100까지 랜덤한 정수를 arr 배열에 순차적으로 저장
+	    	 
+	    	     for(int j = 0; j < i; j++) { // 저장되어있는 배열 첫번째 부터(초기값 0) i(가장 최근 배열공간)까지 검사 
+	    		     if(arr [i] - arr[j] == 0) // 저장할 랜덤정수값과 기존에 저장되어있는 배열 중복 검사(0부터 최근까지 / j=0, 순차적으로 증가 j++))
+	    		       i--; //만약 검사도중 중복된 수가 발견되면 반복 횟수 증가 없음(i--)
+	    		       continue;  // 중복시 반복문 첫 줄로 다시 돌아가 랜덤한 정수 부여   
+	    		 }
+	    	     
+	    	
+	    	 System.out.print(arr[i] + " ");  // 출력 시작 
+	    	 if (i%10 == 9 ) 	 // 10개 출력마다 줄 바꿈(9, 19, 29, 39는 일상 수학에서는 10 20 30 40 이다.)
+		    	System.out.println();
+	    }	    
    }
 }
 // 4*4 배열안에 1부터 10까지의 랜덤한 정수를 저장하고 출력.
@@ -755,35 +783,44 @@ public class study{
 					System.out.println();
 			}
 		}
-		if(i % 10 == 3 || i % 10 == 6 || i % 10 == 9)
-				count++;
 	}
-}*/
 
+// 반복문을 이용하여 3,6,9 게임에서 박수를 출력하는 경우를 순서대로 출력(1부터 99까지만)  
 public class study{
 	public static void main(String args[]) {
 		
-
-	
-		for(int i = 1; i < 100; i++) {
-			int count = 0;
-			if(i / 10 % 3 == 0)
-				count++;
-			if(i % 10 % 3 == 0)
-				count++;
+	    // 박수 칠 숫자를 식별 후 저장하는 반복문 
+		for(int i = 1; i < 100; i++) {    // 1부터 99까지 반복
+			int count = 0; // 박수 횟수 저장 변수 선언(반복 후 초기화 -> 0)
 			
-			if(count == 1) 
+			if(i / 10 % 3 == 0) // 10의 자리 숫자 3,6,9 판별
+				count++; // 박수 1회 증가
+			if(i % 10 % 3 == 0) // 1의 자리 숫자 3,6,9 판별
+				count++; // 박수 1회 증가
+			
+			// 박수 횟수만큼 출력
+			if(count == 1)  
 				System.out.println(i + " 박수 짝 \n");
 			else if(count == 2) 
-				System.out.println(i + " 박수 짝짝 \n");
-			
+				System.out.println(i + " 박수 짝짝 \n");		
 		}
+	}
+}*/
+
+
+
+import java.util.Scanner;
+public class study{
+	public static void main(String args[]){
+        int arr[] = {10, 20, 30, 40, 50};
+        int sum = 0;
 		
-		
+        for(int i = 0; i < arr.length; i++) {
+        	sum += arr[i];
+        }       
+		System.out.println("sum = "+ sum);				
 	}
 }
-
-
 
 
 
