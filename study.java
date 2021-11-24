@@ -812,27 +812,31 @@ public class study{
 // 과목과 점수가 서로 짝을 이루도록 배열을 선언한 후 과목명을 입력 받으면 점수를 출력해라, "그만"을 입력 받으면 종료한다.
 // 예) java >> 95점
 import java.util.Scanner;
-
 public class study{
 	public static void main(String args[]) {
 		Scanner scanner = new Scanner(System.in);
-		String course[] = {"Java", "C++", "HTML5", "컴퓨터구조", "안드로이드"};
-		int score [] = {95, 88, 76, 62, 55};
 		
-		while(true) {
+		String course[] = {"Java", "C++", "HTML5", "컴퓨터구조", "안드로이드"};  // 과목 배열 선언 (크기 5)
+		int score [] = {95, 88, 76, 62, 55}; // 점수 배열 선언 (크기 5)
+		
+		//무한 반복
+		while(true) { 
 			System.out.print("과목 이름 >>> ");
 			String name = scanner.next();	
 			
-			for(int i =0; i < course.length; i++) {
-		    	if(course[i].equals(name)) 
-		    		System.out.println(name + "의 점수는 " + score[i]);		    	
+			for(int i =0; i < course.length; i++) {    //과목명을 입력 받고 기존 과목명 길이(5)만큼 일치 여부 확인(반복)
+		    	if(course[i].equals(name)) // 만약 입력 과목명과 기존 과목명이 동일할 경우
+		    		System.out.println(name + "의 점수는 " + score[i]); // 출력   	
 			}  
+			// for문 탈출 
 			
-			if(name.equals("그만")) {
+			
+			if(name.equals("그만")) {  // "그만" 이라는 키보드 입력시 강제 종료(break) 
 		        System.out.print("프로그램을 종료합니다.");
 		    	break;	
 		    	}
-			else 
+		    	  
+			else  // 그 외 다른 입력 값이 올 경우 "없는 과목"출력 후 무한 반복문 계속 진행
 	    		System.out.println("없는 과목입니다.");
 	    		
 		}
