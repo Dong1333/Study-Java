@@ -236,7 +236,7 @@ public class study{
 	}
 }
 
-// 5개의 정수를 배열에 저장 후 그중 가장 큰 값은?
+// 5개의 정수를 배열에 저장 후 합계를 출력하라
 import java.util.Scanner;
 public class study{
 	public static void main(String args[]){
@@ -255,19 +255,23 @@ import java.util.Scanner;
 public class study{
 	public static void main(String args[]){
 		Scanner scanner= new Scanner(System.in);
-        int counter[] = new int[4];
-        int answer [] = {1, 4, 4, 3, 1, 4, 4, 2, 1, 3, 2};
+		
+        int counter[] = new int[4]; // 배열에 담겨있는 숫자의 종류(1,2,3,4)개수만큼 크기의 배열 선언 *숫자마다 개수를 카운팅 목적
+        int answer [] = {1, 4, 4, 3, 1, 4, 4, 2, 1, 3, 2}; // 배열에 숫자 저장
         
-        for(int i = 0; i < answer.length; i++) {
-        	counter[answer[i]-1]++;
+        // 숫자 종류 개수 카운팅 반복문         
+        // 예) {2,3,3}    2 = 1개, 3 = 2개
+           for(int i = 0; i < answer.length; i++) { // 검토할 배열의 길이 까지 처음부터 반복(검사)
+        	counter[answer[i]-1]++; // answer배열의 i위치에 있는 값에(1,2,3,4 중 하나) -1을 하고(0,1,2,3 중 하나) 그 값이 곧 counter배열의 위치를 나타냄으로 1증가(카운팅)
         }       
-         
-        for(int i = 0; i < counter.length; i++) {
-        	System.out.print((i + 1) + "의 개수만큼 별 찍기 : ");
-        	for(int a = 0; a < counter[i]; a++) {
+        
+        // 출력 반복문
+        for(int i = 0; i < counter.length; i++) {  // 담겨 있는 숫자 4가지(1,2,3,4) 모두 검사해야하므로 카운터 변수 길이(4) 만큼 반복
+        	System.out.print((i + 1) + "의 개수만큼 별 찍기 : "); // i+1(1,2,3,4 순)
+        	for(int a = 0; a < counter[i]; a++) { // counter[i]만큼(카운팅 횟수) '*' 출력
         		System.out.print("*");
         	}
-        	   System.out.println();      	
+        	   System.out.println();  //1,2,3,4 각각 검토 후 출력 마무리에 줄 바꿈
         }   
 	}
 }
@@ -277,24 +281,23 @@ import java.util.Scanner;
 public class study{
 	public static void main(String args[]){
 		Scanner scanner= new Scanner(System.in);
-        int counter[] = new int[4];
+        int counter[] = new int[4]; 
         int answer [] = new int[11];
         
         System.out.print("1~4 사이의 정수를 11개 입력하시오 >>> ");
         
         for(int i = 0; i < 11; i++) {
-        	answer [i] = scanner.nextInt();
-        }
-        for(int i = 0; i < answer.length; i++) {
-        	counter[answer[i]-1]++;
+        	answer [i] = scanner.nextInt(); // 1~4 숫자를 입력 후 anwer배열 i위치에 저장
+        	counter[answer[i]-1]++; answer배열의 i위치에 있는 값에(1,2,3,4 중 하나) -1을 하고(0,1,2,3 중 하나) 그 값이 곧 counter배열의 위치를 나타냄으로 1증가(카운팅)
         }       
          
-        for(int i = 0; i < counter.length; i++) {
-        	System.out.print((i + 1) + "의 개수만큼 별 찍기 : ");
-        	for(int a = 0; a < counter[i]; a++) {
+        // 출력 반복문
+        for(int i = 0; i < counter.length; i++) {  // 담겨 있는 숫자 4가지(1,2,3,4) 모두 검사해야하므로 카운터 변수 길이(4) 만큼 반복
+        	System.out.print((i + 1) + "의 개수만큼 별 찍기 : "); // i+1(1,2,3,4 순)
+        	for(int a = 0; a < counter[i]; a++) { // counter[i]만큼(카운팅 횟수) '*' 출력
         		System.out.print("*");
         	}
-        	   System.out.println();      	
+        	   System.out.println();  //1,2,3,4 각각 검토 후 출력 마무리에 줄 바꿈
         }   
 	}
 }
@@ -805,22 +808,36 @@ public class study{
 				System.out.println(i + " 박수 짝짝 \n");		
 		}
 	}
-}*/
-
-
-
-import java.util.Scanner;
-public class study{
-	public static void main(String args[]){
-        int arr[] = {10, 20, 30, 40, 50};
-        int sum = 0;
-		
-        for(int i = 0; i < arr.length; i++) {
-        	sum += arr[i];
-        }       
-		System.out.println("sum = "+ sum);				
-	}
 }
+// 과목과 점수가 서로 짝을 이루도록 배열을 선언한 후 과목명을 입력 받으면 점수를 출력해라, "그만"을 입력 받으면 종료한다.
+// 예) java >> 95점
+import java.util.Scanner;
+
+public class study{
+	public static void main(String args[]) {
+		Scanner scanner = new Scanner(System.in);
+		String course[] = {"Java", "C++", "HTML5", "컴퓨터구조", "안드로이드"};
+		int score [] = {95, 88, 76, 62, 55};
+		
+		while(true) {
+			System.out.print("과목 이름 >>> ");
+			String name = scanner.next();	
+			
+			for(int i =0; i < course.length; i++) {
+		    	if(course[i].equals(name)) 
+		    		System.out.println(name + "의 점수는 " + score[i]);		    	
+			}  
+			
+			if(name.equals("그만")) {
+		        System.out.print("프로그램을 종료합니다.");
+		    	break;	
+		    	}
+			else 
+	    		System.out.println("없는 과목입니다.");
+	    		
+		}
+	}
+}*/
 
 
 
