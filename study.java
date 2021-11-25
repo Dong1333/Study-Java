@@ -470,6 +470,7 @@ public class study{
 	}
 }
 
+
 // 카드 번호 맞추기 게임(up & down) 0~99까지의 임의의 수를 가진 수를 숨기고 수를 맞추는 게임. 
 // 게임을 반복하기 위해 y/n를 묻고 n일경우 종료 시킨다.
 // 예) 숨긴숫자(87) / 게임 시작 :  44 >> up.   80 >> up.   87 맞았습니다. 
@@ -763,8 +764,7 @@ public class study{
 		
 		int arr [][] = new int[4][4];  // 4*4 배열 생성
 		int count = 0;  // 10까지 저장할 정수형 변수 생성
-		
-		
+				
 		//무한반복을 위하여 while(true) 사용
 			while(true){  
 					int i = (int)(Math.random()*4 + 0);  // 0부터 4까지의 행 위치를 랜덤하게 지정
@@ -843,7 +843,36 @@ public class study{
 	}
 }*/
 
+// 2개의 정수를 입력받아 두 정수의 곱을 출력. try-catch를 사용하여 정실수형을 입력 받는 경우에도 예외 없이 다시 입력받아 출력. 
+// 예) 2.5  6  >> "실수는 입력이 불가합니다"      2  7  >> 14
+import java.util.Scanner;
+import java.util.InputMismatchException;  // 예외 처리를 선언해줘야 한다
+public class study{
+	public static void main(String args []) {
+		Scanner scanner = new Scanner(System.in);
+	
+		int n =0, m = 0;
+		
+	for(int i = 0; i < 1; i++) {	
+		System.out.print("곱하고자 하는 두 수 입력>>");
 
+		try {   // 예외의 경우가 올법한 문장은 try안에 넣어준다.
+			n = scanner.nextInt(); // 정수값이 아닌 실수형(예)3.4)을 입력할 경우
+			m = scanner.nextInt();
+		}
+
+		catch (InputMismatchException e) {  // "InputMismatchException"경고 메세지가 나올터이니 밑에 코드를 실행한다
+			System.out.println("실수는 입력하면 안됩니다."); // 재입력 안내 후
+			scanner.nextLine(); // Scanner에 이미 입력된 키를 모두 제거하고
+			i--; // 인덱스 값을 하나 차감한다.
+			continue;
+		}
+		System.out.print(n + " x " + m + " = " + n * m);
+		scanner.close();
+	}
+	
+  } 
+}
 
 
 
