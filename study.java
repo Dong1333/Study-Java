@@ -841,7 +841,7 @@ public class study{
 	    		
 		}
 	}
-}*/
+}
 
 // 2개의 정수를 입력받아 두 정수의 곱을 출력. try-catch를 사용하여 정실수형을 입력 받는 경우에도 예외 없이 다시 입력받아 출력. 
 // 예) 2.5  6  >> "실수는 입력이 불가합니다"      2  7  >> 14
@@ -873,6 +873,21 @@ public class study{
 	
   } 
 }
+*/
+
+
+
+public class study{
+	int id;
+	public  study (int x) {
+		this.id = x;
+		
+		}
+	public  study() {
+		this(0);
+		System.out.println("생성자 호출");
+	}
+	}
 
 
 
