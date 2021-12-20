@@ -875,19 +875,32 @@ public class study{
 }
 */
 
+import java.util.Scanner;
 
+class Rectangle{
+	int width;
+	int height;
+	public int getArea() {
+		return width * height;
+	}
+}
 
 public class study{
-	int id;
-	public  study (int x) {
-		this.id = x;
+	public static void main(String[] args) {
+		Rectangle rect = new Rectangle();
+		Scanner scanner = new Scanner(System.in);
 		
-		}
-	public  study() {
-		this(0);
-		System.out.println("생성자 호출");
+		System.out.print("사각형의 한 변의 길이 ");
+		
+		rect.width = scanner.nextInt();
+		rect.height = scanner.nextInt();
+		
+		System.out.println("사각형의 넓이는 " + rect.getArea());
+		
+		
 	}
-	}
+}
+
 
 
 
