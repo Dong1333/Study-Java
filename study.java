@@ -873,7 +873,6 @@ public class study{
 	
   } 
 }
-*/
 
 import java.util.Scanner;
 
@@ -885,22 +884,104 @@ class Rectangle{
 	}
 }
 
-public class study{
+class study{
 	public static void main(String[] args) {
 		Rectangle rect = new Rectangle();
 		Scanner scanner = new Scanner(System.in);
 		
-		System.out.print("사각형의 한 변의 길이 ");
-		
+		System.out.println("가로 변 길의 >>");
 		rect.width = scanner.nextInt();
+		
+		System.out.println("세로 변 길이 >> ");
 		rect.height = scanner.nextInt();
 		
-		System.out.println("사각형의 넓이는 " + rect.getArea());
-		
+		System.out.print("사각형의 넓이는 " + rect.getArea());
+		scanner.close();
 		
 	}
 }
 
+class Circle{
+	int radius;
+	String name;
+	
+	public Circle() {
+		radius = 1; 
+		name = "";
+	}
+	
+	public Circle(int r, String n) {
+		radius = r; 
+		name = n;
+	}
+	public double getArea() {
+		return 3.14 * radius * radius;
+	}
+}
+
+public class study{
+	public static void main(String[] args) {
+		Circle pizza = new Circle(10, "자바피자");
+		
+		double area = pizza.getArea();
+		System.out.println(pizza.name + "의 면적은 " + area);
+		
+		Circle donut = new Circle();
+		donut.name = "도넛피자";
+		area = donut.getArea();
+		System.out.println(donut.name + "의 면적은 " + area);
+	}
+}*/
+
+
+import java.util.Scanner;
+class Human{
+	String name;
+	int age;
+	double height, weight;
+	
+	public Human(String name) {
+		this.name = name;
+	}
+	public Human(String name, int age, double height, double weight) {
+		this.name = name;
+		this.age = age;
+		this.height = height;
+		this.weight = weight;
+	}		
+}
+
+public class study{
+	public static void main(String [] args) {		
+		Scanner scanner = new Scanner(System.in);
+		Human aHuman = new Human("홍길동");
+		Human [] HumanArr = new Human[5];
+		
+		aHuman.age = 21;
+		aHuman.height = 180.5;
+		aHuman.weight = 73.2;
+		
+		for(int i = 0 ; i < HumanArr.length; i++) {
+			
+			System.out.print(i+1+"번째 사람의 이름은 ??  >>> ");
+		    String name = scanner.next();
+			System.out.print(i+1+"번째 사람의 나이는 ??  >>> ");
+			int age = scanner.nextInt();
+			System.out.print(i+1+"번째 사람의 신장은(cm) ?? >>> ");
+			double height = scanner.nextDouble();
+			System.out.print(i+1+"번째 사람의 몸 무게는??(kg) ?? >>> ");
+			double weight = scanner.nextDouble();
+			System.out.println();
+			HumanArr[i] = new Human(name, age, height, weight);
+		}
+		
+		for(int i = 0; i < HumanArr.length; i++) {
+			System.out.println("\n"+i+"번째 사람의 정보 \n이름 : "+HumanArr[i].name +"\n나이  : "
+		                     +HumanArr[i].age + "\n신장 : "+HumanArr[i].height+ "\n몸무게 : "+HumanArr[i].weight);
+		}
+		scanner.close();
+	}
+}
 
 
 
