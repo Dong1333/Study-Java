@@ -931,7 +931,7 @@ public class study{
 		area = donut.getArea();
 		System.out.println(donut.name + "의 면적은 " + area);
 	}
-}*/
+}
 
 
 import java.util.Scanner;
@@ -976,12 +976,13 @@ public class study{
 		}
 		
 		for(int i = 0; i < HumanArr.length; i++) {
-			System.out.println("\n"+i+"번째 사람의 정보 \n이름 : "+HumanArr[i].name +"\n나이  : "
-		                     +HumanArr[i].age + "\n신장 : "+HumanArr[i].height+ "\n몸무게 : "+HumanArr[i].weight);
+			System.out.println("\n"+i+"번째 사람의 정보 \n이름 : "+ HumanArr[i].name +"\n나이  : "
+		              + HumanArr[i].age + "\n신장 : "+ HumanArr[i].height + "\n몸무게 : "+ HumanArr[i].weight);
 		}
 		scanner.close();
 	}
-}
+}*/
+
 
 
 
