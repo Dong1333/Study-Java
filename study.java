@@ -981,9 +981,101 @@ public class study{
 		}
 		scanner.close();
 	}
+}
+
+import java.util.Scanner;
+
+class CurrencyConverter {
+	private static double rate;
+	public static double toDollar(double won) {
+		return won/rate;
+	}
+	public static double toKWR(double dollar) {
+		return dollar * rate;
+	}
+	public static void setRate(double r) {
+		rate = r;
+	}
+}
+
+public class study{
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("환율 (1달러) >> ");
+		double rate = scanner.nextDouble();
+		CurrencyConverter.setRate(rate);
+		System.out.println("백만원은 $" + CurrencyConverter.toDollar(1000000) + "입니다.");
+		
+		System.out.println("$100는 " + CurrencyConverter.toKWR(100) + "원입니다.");
+		scanner.close();
+	}
+}
+
+public class study{
+	int s;
+	static int t;
+	public static void main(String [] args) {
+		study.t = 10;
+		study.s = 20;
+		study obj = new study();
+		obj.s = 30;
+		obj.t = 40;
+		System.out.println(obj.s);
+		System.out.println(obj.t);
+	}
+}
+
+class TV{
+	String name;
+	int year;
+	int inch;
+	
+	public TV(String name, int year, int inch) {
+		this.name = name;
+		this.year = year;
+		this.inch = inch;
+	}
+	void show() {
+		System.out.print(name + "에서 만든 " + year + "년형 " + inch + "인치 TV");
+	}
+}
+
+public class study{
+	public static void main(String [] args) {
+		TV myTV = new TV("LG", 2017, 32);
+		myTV.show();
+	}
 }*/
 
+import java.util.Scanner;
 
+class Grade{
+	private int math, science, english;
+	
+	public Grade(int math, int science, int english){
+		this.math = math;
+		this.science = science;
+		this.english = english;
+	}
+	public double average(){
+		return (math + science + english) / 3;
+	}
+}
+class study {
+public static void main(String [] args) {
+	Scanner scanner = new Scanner(System.in);
+	
+	System.out.print("수학,과학, 영어 순으로 3개의 점수 입력 >> ");
+	
+	int math = scanner.nextInt();
+	int science = scanner.nextInt();
+	int english = scanner.nextInt();
+	
+	Grade me = new Grade(math, science, english);
+	System.out.println("평균은 " + me.average());
+	scanner.close();
+ }
+}
 
 
 
