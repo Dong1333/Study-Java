@@ -1047,48 +1047,59 @@ public class study{
 	}
 }
 
+// Grade(성적) 클래스를 작성한다. 3과목의(수학, 과학 ,영어) 점수를 입력 받아 객체생성 후 평균을 출력
 import java.util.Scanner;
 
 class Grade{
-	private int math, science, english;
+	private int math, science, english; // 점수(수학, 과학, 영어) 필드 생성
 	
-	public Grade(int math, int science, int english){
+	
+	// 생성자 생성(매개변수와 맴버의 이름이 동일하므로 this로 초기화)
+	public Grade(int math, int science, int english){ 
 		this.math = math;
 		this.science = science;
 		this.english = english;
 	}
+	
+	// 과목의 평균값을 돌려주는 메소드 생성
 	public double average(){
 		return (math + science + english) / 3;
 	}
 }
+
 class study {
 public static void main(String [] args) {
 	Scanner scanner = new Scanner(System.in);
 	
-	System.out.print("수학,과학, 영어 순으로 3개의 점수 입력 >> ");
+	System.out.print("수학,과학, 영어 순으로 3개의 점수 입력 >> "); 
 	
 	int math = scanner.nextInt();
 	int science = scanner.nextInt();
 	int english = scanner.nextInt();
 	
-	Grade me = new Grade(math, science, english);
-	System.out.println("평균은 " + me.average());
+	Grade me = new Grade(math, science, english); // me(Grade 클래스) 객체 생성(3개의 매개변수 전달) 
+	System.out.println("평균은 " + me.average());  // me의 메소드 호출(average)후 출력 
 	scanner.close();
  }
-}*/
+}
 
+//노래 한 곡을 나타내는 Song 클래스를 작성해라 
 class Song{
-	String title, artist, country;
-	int year;
+	String title, artist, country;  // 제목, 가수, 나라 필드 생성
+	int year; // 년도 필드 생성
 	
-	public Song(){};
+	public Song(){}; // 기본 생성자 생성
 	
-	public Song(int year, String country, String artist, String title) {
+	
+	// 매개변수로 모든 필드를 초기화 하는 생성자 작성 (this를 사용하여 초기화)
+	public Song(int year, String country, String artist, String title)  {
 		this.year = year;
 		this.country = country;
 		this.artist = artist;
 		this.title = title;
 	}
+	
+	// 노래의 정보를 출력하는 메소드 작성
 	public void show() {
 		System.out.print(year + "년 " + country + "국적의 " + artist + "가 부른 " + title);
 	}
@@ -1101,6 +1112,7 @@ public class study{
 		music.show();
 	}
 }
+*/
 
 
 
