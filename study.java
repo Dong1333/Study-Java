@@ -1045,7 +1045,7 @@ public class study{
 		TV myTV = new TV("LG", 2017, 32);
 		myTV.show();
 	}
-}*/
+}
 
 import java.util.Scanner;
 
@@ -1075,7 +1075,33 @@ public static void main(String [] args) {
 	System.out.println("평균은 " + me.average());
 	scanner.close();
  }
+}*/
+
+class Song{
+	String title, artist, country;
+	int year;
+	
+	public Song(){};
+	
+	public Song(int year, String country, String artist, String title) {
+		this.year = year;
+		this.country = country;
+		this.artist = artist;
+		this.title = title;
+	}
+	public void show() {
+		System.out.print(year + "년 " + country + "국적의 " + artist + "가 부른 " + title);
+	}
 }
+
+public class study{
+	public static void main(String [] args ) {
+		Song music = new Song(1987, "스웨덴", "ABBA", "Dancing Queen");
+		
+		music.show();
+	}
+}
+
 
 
 
