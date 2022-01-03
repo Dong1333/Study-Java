@@ -1085,7 +1085,7 @@ public static void main(String [] args) {
 
 //노래 한 곡을 나타내는 Song 클래스를 작성해라 
 class Song{
-	String title, artist, country;  // 제목, 가수, 나라 필드 생성
+	String title, artist, country;  // 제목, 가수, 나라 필드(맴버) 생성
 	int year; // 년도 필드 생성
 	
 	public Song(){}; // 기본 생성자 생성
@@ -1112,9 +1112,83 @@ public class study{
 		music.show();
 	}
 }
+
+class Rectangle{
+	int x, y, width, height;
+	
+	Rectangle(int x, int y, int width, int height) {
+		this.x = x;
+		this.y = y;
+		this.width = width;
+		this.height = height;
+	}
+	
+	int square(){
+		return width * height;
+	}
+	
+	boolean contains(Rectangle r) {
+	    if ((this.x < r.x) && (this.y < r.y) &&
+	    	(this.x + this.width > r.x + r.width) && (this.y + this.height > r.y + r.height))
+	    	return true;
+	    else 
+	    	return false;
+		}
+	
+	void show() {
+		System.out.println("(" + x + "," + y + ") 에서 크기가 " + width + " x " + height + "인 사각형");
+	}
+}
+
+public class study{
+	public static void main(String args[] ) {
+		Rectangle r = new Rectangle(2, 2, 8, 7);
+		Rectangle s = new Rectangle(5, 5, 6, 6);
+		Rectangle t = new Rectangle(1, 1, 10, 10);
+		
+		r.show();
+		System.out.println("s의 면적은 " + s.square());
+		
+		if(t.contains(r)) System.out.println("t는 r을 포함합니다.");
+		if(t.contains(s)) System.out.println("t는 s를 포함합니다.");
+	}
+}
 */
 
+import java.util.Scanner;
 
+class Circle{
+	private double x, y;
+	private int radius;
+	
+	public Circle(double x, double y, int radius) {
+		this.x = x;
+		this.y = y;
+		this.radius = radius;
+	}
+	
+	public void show() {
+		System.out.printf("(%2f, %2f) %d \n ", x, y, radius);
+	}
+}
+
+public class study{
+	public static void main(String [] args) {
+		Scanner scanner = new Scanner(System.in);
+		Circle c [] = new Circle[3];
+		
+		for(int i = 0; i < c.length; i++) {
+			System.out.print("x, y, radius >>");
+			double x = scanner.nextDouble();
+			double y = scanner.nextDouble();
+			int radius = scanner.nextInt();
+			c[i] = new Circle(x, y, radius);
+		}
+		for(int i = 0; i < c.length; i++)
+			c[i].show();
+		scanner.close();
+	}
+}
 
 
 
