@@ -1168,7 +1168,7 @@ class Circle{
 	}
 	
 	public void show() {
-		System.out.printf("(%2f, %2f) %d \n ", x, y, radius);
+		System.out.printf("(%.2f, %.2f) %d \n", x, y, radius);
 	}
 }
 
