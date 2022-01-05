@@ -1153,8 +1153,9 @@ public class study{
 		if(t.contains(s)) System.out.println("t는 s를 포함합니다.");
 	}
 }
-*/
 
+
+//3개의 원 [객체 배열]을 만들고 x, y, radius, 값을 읽어 3개의 [원 객체]를 만들고 show()를 이용하여 모두 출력
 import java.util.Scanner;
 
 class Circle{
@@ -1188,6 +1189,50 @@ public class study{
 			c[i].show();
 		scanner.close();
 	}
+}*/
+
+import java.util.Scanner;
+
+class Circle{
+	private double x, y;
+	private int radius; 
+
+	public Circle(double x, double y, int radius) {
+		this.x = x;
+		this.y = y;
+		this.radius = radius;
+	}
+	
+	public void show() {   // Circle 클래스의 메소드
+		System.out.printf("(%.1f,%.1f)%d%n", x, y, radius);
+	}
+
+	static int biggest(Circle[] a) {
+		
+		if(a[0].radius>a[1].radius&&a[0].radius>a[2].radius) return 0;
+		else if (a[1].radius>a[0].radius&&a[1].radius>a[2].radius) return 1;
+		else return 2;
+	}
+}
+
+public class study{
+	public static void main(String [] args) {
+		Scanner scanner = new Scanner(System.in);
+		Circle c [] = new Circle[3];
+			for(int i=0; i<c.length; i++) {
+				System.out.print("x, y, radius >> ");    
+				double x = scanner.nextDouble();
+				double y = scanner.nextDouble();
+				int radius = scanner.nextInt();
+				c[i] = new Circle(x,y,radius);     // 객체배열 c[] 안에 객체 3개 생성
+
+			} 
+
+			System.out.print("가장 면적이 큰 원은 ");          
+			c[Circle.biggest(c)].show();               // c배열의 인덱스번호를 리턴받아 show() 메소드를 이용해서 출력      
+			
+			scanner.close();
+		}
 }
 
 
