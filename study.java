@@ -1189,7 +1189,7 @@ public class study{
 			c[i].show();
 		scanner.close();
 	}
-}*/
+}
 
 import java.util.Scanner;
 
@@ -1233,8 +1233,72 @@ public class study{
 			
 			scanner.close();
 		}
+}*/
+
+import java.util.Scanner;
+
+class Day {
+	private String work;
+	
+	public void set(String work) {
+		this.work = work;
+	}
+	public String get() {
+		return work;
+	}
+	public void show() {
+		if(work == null)
+			System.out.println("없습니다.");
+		else
+			System.out.println(work + "입니다.");
+	}
 }
 
+class MonthSchedule{	
+	int max_day;
+	
+	Scanner scanner = new Scanner(System.in);
+	
+	Day day [] = new Day[max_day];
+	
+	MonthSchedule(int max_day) {
+		this.max_day = max_day;
+	}
+	
+	public void run() {
+		System.out.print
+	}
+	
+	
+	public void input() {
+	     System.out.printf("계획한 스케줄을 기록할 일자 입력(1~ %d) >> ", max_day);
+		 int schedule_days = scanner.nextInt();
+		 day[schedule_days] = new Day();
+		 
+		 System.out.print("계획한 스케줄(빈칸 없이 입력) >> ");
+		 String work = scanner.next();
+		 day[schedule_days].set(work);	
+	}
+	
+	public void view() {
+		System.out.printf("기록한 스케줄을 확인할 일자 입력(1~ %d) >> ", max_day);
+		int view_days = scanner.nextInt();
+		System.out.printf("%d의 스케줄은", view_days);
+		day[view_days].show();
+	}
+	
+	public void fininsh() {
+		System.out.print("프로그램을 종료합니다.");
+	}
+	
+}
+
+public class study{
+	public static void main(String [] args) {
+		MonthSchedule april = new MonthSchedule(30);
+		april.run();	
+	}
+}
 
 
 
