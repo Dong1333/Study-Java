@@ -1107,7 +1107,7 @@ class Song{
 
 public class study{
 	public static void main(String [] args ) {
-		Song music = new Song(1987, "스웨덴", "ABBA", "Dancing Queen");
+		Song music = new Song(1987, "스웨덴", "ABBA", "Dancing Queen");  
 		
 		music.show();
 	}
@@ -1209,7 +1209,7 @@ class Circle{
 
 	static int biggest(Circle[] a) {
 		
-		if(a[0].radius>a[1].radius&&a[0].radius>a[2].radius) return 0;
+		if(a[0].radius>a[1].radius&&a[0].radius>a[2].radius) return 0; 
 		else if (a[1].radius>a[0].radius&&a[1].radius>a[2].radius) return 1;
 		else return 2;
 	}
@@ -1218,35 +1218,37 @@ class Circle{
 public class study{
 	public static void main(String [] args) {
 		Scanner scanner = new Scanner(System.in);
-		Circle c [] = new Circle[3];
-			for(int i=0; i<c.length; i++) {
+		Circle c [] = new Circle[3];  // Circle 객체인 c를(크기는 3) 선언
+			for(int i=0; i<c.length; i++) { //  c객체의 크기(3)만큼 반복
 				System.out.print("x, y, radius >> ");    
-				double x = scanner.nextDouble();
-				double y = scanner.nextDouble();
-				int radius = scanner.nextInt();
+				double x = scanner.nextDouble();  // x 좌표 저장
+ 				double y = scanner.nextDouble();  // y 좌표 저장
+				int radius = scanner.nextInt();   // 반지름 저장
 				c[i] = new Circle(x,y,radius);     // 객체배열 c[] 안에 객체 3개 생성
 
 			} 
 
 			System.out.print("가장 면적이 큰 원은 ");          
-			c[Circle.biggest(c)].show();               // c배열의 인덱스번호를 리턴받아 show() 메소드를 이용해서 출력      
+			c[Circle.biggest(c)].show();    // c배열의 인덱스번호를 리턴받아 show() 메소드 출력. (static 이므로 > "클래스명." 으로  접근)   
 			
 			scanner.close();
 		}
 }*/
 
+// 하루의 할 일을 표현하는 클래스 Day를 작성하고 입력, 보기, 끝내기 메소드를 생성하여 스캐줄 관리 프로그램을 작성 해라
 import java.util.Scanner;
 
+// 하루 일과를 저장하고 출력하는 클래스 생성
 class Day {
-	private String work;
+	private String work; // 하루의 할 일을 나타내는 문자열
 	
 	public void set(String work) {
-		this.work = work;
+		this.work = work; 
 	}
 	public String get() {
-		return work;
+		return work;  
 	}
-	public void show() {
+	public void show() {     // 저장된 스캐줄이 없으면 "없음", 있으면 "스캐줄 입니다" 출력 하는 메소드 생성
 		if(work == null)
 			System.out.println("없습니다.");
 		else
@@ -1254,49 +1256,70 @@ class Day {
 	}
 }
 
+// 당월 스캐줄을 입력, 보기, 끝내기 기능으로 관리할 수 있는 클래스 생성
 class MonthSchedule{	
-	int max_day;
-	
 	Scanner scanner = new Scanner(System.in);
 	
-	Day day [] = new Day[max_day];
+	 int max_day;  // 그 달의 최대 일수를 저장하는 변수 선언  예) 4월 == 30일이 최대 
+     Day day [];  // 하루일과를 저장하는 Day 클래스 객체 선언 
 	
-	MonthSchedule(int max_day) {
+     // 1개의 매개변수(최대 일수)를 받을시 동작하는 생성자 선언
+	 MonthSchedule(int max_day) {  
 		this.max_day = max_day;
+		day = new Day [max_day]; // 최대 일수(매개변수 max_day)크기의 Day 객체 선언 
+		for(int i = 0; i < day.length; i++) 
+			day[i] = new Day(); // i 번째 Day 객체 생성
 	}
-	
+	//스캐줄 관리 프로그램 메소드. (입력, 보기, 끝내기)를 사용하는 반복 메소드
 	public void run() {
-		System.out.print
+		System.out.println("이번달 스케쥴 관리 프로그램.");
+		
+		// 무한 반복 진행
+		while(true) {
+		System.out.print("스케줄 (입력 : 1, 보기 : 2, 끝내기 : 3) >>> "); // 선택 숫자 입력(입력 숫자의 따라서 동작될 메소드 지정)
+		int choice = scanner.nextInt();
+		// 입력받은 숫자가 [1 == 입력, 2 == 보기, 3 == 끝내기]
+		if(choice == 1)
+			input();
+		else if (choice == 2) 
+			view();
+		else if(choice == 3) {
+		    finish();
+		    break;
+		  }
+		
+	    }
 	}
-	
-	
+	// run()에서 1입력시 스케줄을 Day객체 배열에 저장하는 메소드
 	public void input() {
-	     System.out.printf("계획한 스케줄을 기록할 일자 입력(1~ %d) >> ", max_day);
+	     System.out.printf("스케줄을 기록할 일자 입력(1~ %d) >> ", max_day); // 1 ~ ?(매개변수 max_day) 범위 내의 숫자(날짜) 입력
 		 int schedule_days = scanner.nextInt();
-		 day[schedule_days] = new Day();
 		 
-		 System.out.print("계획한 스케줄(빈칸 없이 입력) >> ");
+		 System.out.print("계획한 스케줄(빈칸 없이 입력) >> "); // 스케줄 입력 (문자열)
 		 String work = scanner.next();
-		 day[schedule_days].set(work);	
+		 
+		 day[schedule_days - 1 ].set(work); // 날짜(배열 번호)에(.) set(입력한 스케줄) 저장
 	}
-	
+	// run()에서 2입력시 저장한 스케줄을 보여주는 메소드
 	public void view() {
 		System.out.printf("기록한 스케줄을 확인할 일자 입력(1~ %d) >> ", max_day);
 		int view_days = scanner.nextInt();
+		
 		System.out.printf("%d의 스케줄은", view_days);
-		day[view_days].show();
+		day[view_days - 1].show(); // dat[입력 날짜]의 스캐줄을 보여주기(printf)
 	}
-	
-	public void fininsh() {
+	// run()에서 3입력시 프로그램을 종료하는 메소드
+	public void finish() {
 		System.out.print("프로그램을 종료합니다.");
+		scanner.close();
 	}
 	
 }
-
+// 메인 메소드
 public class study{
 	public static void main(String [] args) {
-		MonthSchedule april = new MonthSchedule(30);
-		april.run();	
+		MonthSchedule april = new MonthSchedule(30); // april이라는 월 스캐줄 객체 선언과 동시에 매개변수 값인 30(일자 최대 범위)을 전달
+		april.run(); // run메소드 실행
 	}
 }
 
