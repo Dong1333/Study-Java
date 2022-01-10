@@ -1113,6 +1113,8 @@ public class study{
 	}
 }
 
+// x,y 좌표와 가로, 높이 필드로 구성되어있는 직사각형클래스를 작성하고 
+// 서로 비교하여 면적을 출력하는 프로그램 작성(단 비교하는 두 직사각형의 변이 하나라도 겹치면 포함 개념 x)
 class Rectangle{
 	int x, y, width, height;
 	
@@ -1203,13 +1205,14 @@ class Circle{
 		this.radius = radius;
 	}
 	
+	
 	public void show() {   // Circle 클래스의 메소드
-		System.out.printf("(%.1f,%.1f)%d%n", x, y, radius);
+		System.out.printf("(%.1f,%.1f)%d%n", x, y, radius);  
 	}
 
+    // 반지름이 가장 큰 배열의 번지수를 return함
 	static int biggest(Circle[] a) {
-		
-		if(a[0].radius>a[1].radius&&a[0].radius>a[2].radius) return 0; 
+		if(a[0].radius>a[1].radius&&a[0].radius>a[2].radius) return 0;   
 		else if (a[1].radius>a[0].radius&&a[1].radius>a[2].radius) return 1;
 		else return 2;
 	}
@@ -1233,7 +1236,7 @@ public class study{
 			
 			scanner.close();
 		}
-}*/
+}
 
 // 하루의 할 일을 표현하는 클래스 Day를 작성하고 입력, 보기, 끝내기 메소드를 생성하여 스캐줄 관리 프로그램을 작성 해라
 import java.util.Scanner;
@@ -1322,6 +1325,45 @@ public class study{
 		april.run(); // run메소드 실행
 	}
 }
+*/
+
+
+class Point{
+	private int x, y;
+	public void set(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+	public void showPoint() {
+		System.out.printf("(%d, %d) \n" ,x ,y);
+	}
+}
+
+class ColorPoint extends Point{
+	private String color;
+	public void setColor(String color) {
+		this.color = color;
+	}
+	public void showColorPoint() {
+		System.out.print(color);
+		showPoint();
+	}
+}
+
+public class study{
+	public static void main(String [] args) { 
+		Point p = new Point(); // ColorPoint 객체 생성
+		p.set(1,2); // Point 클래스의 set() 호출
+		p.showPoint();
+		
+		ColorPoint cp = new ColorPoint(); // ColorPoint 객체 생성
+		cp.set(3,4); // point 클래스의 set() 호출
+		cp.setColor("red"); // ColorPoint 클래스의 setColor() 호출
+		cp.showColorPoint(); // 컬러와 좌표 출력
+	}
+}
+
+
 
 
 
