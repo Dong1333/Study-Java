@@ -1408,7 +1408,7 @@ interface MouseDriver{
 	default void drop() { System.out.println("drop");}
 }
 
-*/
+
 
 
 class Pen { // 모든 펜의 공통 속성
@@ -1443,9 +1443,102 @@ class FountainPen extends Ballpen { // 만년필
 	public void refill(int n) {
 		setAmount(n);
 	}
+
+class A {
+	   public A() { System.out.println("A"); }
+	   public A(int x) { System.out.println("A: " + x); }
+	}
+	class B extends A {
+	   public B() { super(100); }
+	   public B(int x) { System.out.println("B: " + x); }
+	}
+	public class study {
+	   public static void main(String[] args) {
+	      B b = new B(11);
+	   }
+	}
+
+
+abstract class OddDetector {
+	protected int n;
+
+	public OddDetector(int n) {
+		this.n = n;
+	}
+
+	public abstract boolean isOdd(); // 홀수이면 true 리턴
+}
+
+public class study extends OddDetector {
+	public study(int n) {
+		super(n);
+	}
+
+	public boolean isOdd() { // 이부분을 추가
+		if (n % 2 == 1)
+			return true;
+		else
+			return false;
+	}
+
+	public static void main(String[] args) {
+		study b = new study(10);
+		System.out.println(b.isOdd());
+	}
 }
 
 
+abstract class Shape {
+	public void paint() {
+		draw();
+	}
 
+	abstract public void draw();
+}
 
+class Circle extends Shape {
+	private int radius;
+
+	public Circle(int radius) {
+		this.radius = radius;
+	}
+
+	public void draw() {
+		System.out.println("반지름 = " + radius);
+	}
+	double getArea() {
+		return 3.14 * radius * radius;
+	}
+}
+
+public class study{
+	public static void main(String [] args) {
+		Circle p = new Circle(10);
+		p.paint();
+	}
+}
+*/
+
+interface Device{
+	void on();
+	void off();
+}
+public class study implements Device{
+	public void on() {
+		System.out.println("켜졌습니다.");
+	}
+	public void watch() {
+		System.out.println("방송중입니다.");
+	}
+	public void off() {
+		System.out.println("종료합니다.");
+	}
+	
+	public static void main(String [] args) {
+		study myTV = new study();
+		myTV.on();
+		myTV.watch();
+		myTV.off();	
+	}
+}
 
