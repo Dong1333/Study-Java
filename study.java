@@ -1540,7 +1540,7 @@ public class study implements Device{
 		myTV.watch();
 		myTV.off();	
 	}
-*/
+
 
 class TV{
 	private int size;
@@ -1590,5 +1590,72 @@ public class study{
 		
 		IPTV iptv = new IPTV("192.1.1.2", 32, 1024);
 		iptv.printProperty();
+	}
+}
+
+*/
+
+import java.util.Scanner;
+
+abstract class Converter{
+	abstract protected double convert(double src); // 추상 메소드
+	abstract protected String getSrcString();  // 추상 메소드
+	abstract protected String getDestString();  // 추상 메소드
+	protected double ratio; // 비율
+	
+	public void run() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println(getSrcString() + "을 " + getDestString() + "로 비꿉니다.");
+		System.out.println(getSrcString() + "을 입력하세요 >> ");
+		double val = scanner.nextDouble();
+		double res = convert(val);
+		System.out.println("변환 결과 : " + res + getDestString() + "입니다");
+	
+	}
+}
+
+class Won2Dollar extends Converter{
+	private int dollar;
+	
+	protected String getSrcString() {
+		return "원";
+	}
+	protected String getDestString() {
+		return "달러";
+	}
+	protected double convert(double src) {
+		return src / dollar;
+	}
+			
+	public Won2Dollar(int dollar) {
+		this.dollar = dollar;
+	}
+}
+
+class Km2Mile extends Converter{
+    private double mile;
+	
+	protected String getSrcString() {
+		return "Km";
+	}
+	protected String getDestString() {
+		return "mile";
+	}
+	protected double convert(double src) {
+		return src / mile;
+	}
+			
+	public Km2Mile(double mile) {
+		this.mile = mile;
+	}
+}
+
+public class study {
+	public static void main(String [] args) {
+		Won2Dollar toDollar = new Won2Dollar(1200); // 1달러는 1200원
+		toDollar.run();
+		
+		Km2Mile toMile = new Km2Mile(1.6); // 1마일은 1.6km
+		toMile.run();
 	}
 }
