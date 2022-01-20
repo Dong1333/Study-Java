@@ -1593,7 +1593,7 @@ public class study{
 	}
 }
 
-*/
+
 
 import java.util.Scanner;
 
@@ -1657,5 +1657,154 @@ public class study {
 		
 		Km2Mile toMile = new Km2Mile(1.6); // 1마일은 1.6km
 		toMile.run();
+	}
+}
+
+class Point {
+	private int x, y;
+	
+	public Point(int x, int y) {
+	this.x = x;
+	this.y = y;
+	}
+	public int getX() {
+		return x;
+	}
+	
+	public int getY() {
+		return y;
+	}
+	
+	protected void move (int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+}
+
+class ColorPoint extends Point{
+	
+	private String color;
+	
+	public ColorPoint(int x, int y, String color) {
+		super(x, y);
+		this.color = color;
+	}
+	
+	public void setXY(int x, int y) {
+		move(x,y);
+	}
+	
+	public String setColor(String color) {
+		this.color = color;
+		return color;
+	}
+	
+	public String toString() {
+		return setColor(color) + "색의 " + "(" + getX() + "," + getY() + ")" + "의 점";
+	}
+}
+
+
+public class study {
+	public static void main(String [] args) {
+		ColorPoint cp = new ColorPoint(5, 5, "YELLOW");
+		cp.setXY(10, 20);
+		cp.setColor("RED");
+		String str = cp.toString();
+		System.out.println(str + "입니다.");	
+	}
+}
+
+*/
+
+import java.util.Scanner;
+
+abstract class Clac{
+	public int a;
+	public int b;
+	
+	public void setValue(int a, int b) {
+		this.a = a;
+		this.b = b;
+	}
+	protected abstract int calculate();
+}
+
+class Add extends Clac{
+	
+	public Add(int a, int b) {
+		setValue(a,b);
+	}
+	public int calculate() {
+		return a + b;
+	}
+}
+
+class Sub extends Clac{
+	
+	public Sub(int a, int b) {
+		setValue(a,b);
+	}
+	
+	public int calculate() {
+		return a - b;
+	}
+}
+
+class Mul extends Clac{
+	
+	public Mul(int a, int b) {
+		setValue(a,b);
+	}
+
+	public int calculate() {
+		return a * b;
+	}
+}
+
+class Div extends Clac{
+	
+	public Div(int a, int b) {
+		setValue(a,b);
+	}
+	public int calculate() {
+		return a / b;
+	}
+}
+
+
+
+
+public class study {
+	public static void main(String [] args ) {
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.print("두 정수와 연산자를 입력하시오 >> ");
+		Clac x;
+		
+		int a = scanner.nextInt();
+		int b = scanner.nextInt();
+		
+		char Giho = scanner.next().charAt(0);
+
+		if(Giho == '+') {
+			x = new Add(a, b);
+			System.out.print(x.calculate());
+		}
+		else if(Giho == '-') {
+			x = new Sub(a, b);
+			System.out.print(x.calculate());
+		}
+		else if(Giho == '*') {
+			x = new Mul(a, b); 
+			System.out.print(x.calculate());
+		}
+		else if(Giho == '/') {
+			x = new Div(a, b); 
+			System.out.print(x.calculate());
+		}
+		
+		
+	
 	}
 }
