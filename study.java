@@ -1517,7 +1517,7 @@ public class study{
 		p.paint();
 	}
 }
-*/
+
 
 interface Device{
 	void on();
@@ -1540,5 +1540,55 @@ public class study implements Device{
 		myTV.watch();
 		myTV.off();	
 	}
+*/
+
+class TV{
+	private int size;
+	public TV(int size) {
+		this.size = size;
+	}
+	protected int getSize() {
+		return size;
+	}
 }
 
+class ColorTV extends TV{
+	private int color;
+
+	public ColorTV(int size, int color) {
+		super(size);
+		this.color = color;
+	}
+	
+	protected int getColor() {
+		return color;
+	}
+	
+	public void printProperty() {
+		System.out.println(getSize() + "인치 " + color + "컬러");	
+	}
+}
+
+class IPTV extends ColorTV{
+	private String IP_adress;
+	
+	public IPTV(String IP_adress, int size, int color) {
+		super(size, color);
+		this.IP_adress = IP_adress;
+	}
+	
+	public void printProperty() {
+		System.out.printf("나의 IPTV는 %s 주소의 %d인치 %d컬러", IP_adress, getSize(), getColor());
+	}
+}
+
+
+public class study{
+	public static void main(String [] args) {
+		ColorTV myTV = new ColorTV(32, 1024);
+		myTV.printProperty();
+		
+		IPTV iptv = new IPTV("192.1.1.2", 32, 1024);
+		iptv.printProperty();
+	}
+}
