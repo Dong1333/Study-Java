@@ -1659,7 +1659,7 @@ public class study {
 		toMile.run();
 	}
 }
-
+// 문제
 class Point {
 	private int x, y;
 	
