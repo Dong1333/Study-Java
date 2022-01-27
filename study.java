@@ -1715,7 +1715,7 @@ public class study {
 	}
 }
 
-*/
+
 
 import java.util.Scanner;
 
@@ -1806,5 +1806,26 @@ public class study {
 		
 		
 	
+	}
+}
+*/
+
+public class study{
+	public static void main(String [] args) {
+		java.util.StringTokenizer st = new java.util.StringTokenizer("a=3,b=5,c=6", "=,");
+		int sum = 0;
+		while(st.hasMoreTokens()) {
+			String next = st.nextToken();
+			try {
+				sum += Int
+			}
+			System.out.println(st.nextToken());
+			if (st.nextToken().equals("3") || st.nextToken().equals("5") || st.nextToken().equals("6")) {
+				System.out.println(st.nextToken());
+				int s = Integer.parseInt(st.nextToken()); 
+				sum += s;
+			}
+			System.out.println("합은 = " + sum);
+		}
 	}
 }
