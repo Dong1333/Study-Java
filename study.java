@@ -1808,7 +1808,6 @@ public class study {
 	
 	}
 }
-*/
 
 public class study {
 	public static void main(String[] args) {
@@ -1826,4 +1825,34 @@ public class study {
 		}
 		System.out.println("합은 "+sum); // 남은 토큰이 없으면 반복문 탈출 후 출력
 	}
+} */
+
+public class study {
+	private int x, y, radius;
+	
+	public study(int x, int y, int radius) {
+		this.x = x;
+		this.y = y;
+		this.radius = radius;
+	}
+	
+	public String toString() {
+		return "Circle(" + x + "," + y + ") 반지름" + radius;
+	}
+	public boolean equals(Object obj) {
+		study p = (study)obj;
+		if(x == p.x && y == p.y)
+			return true;
+		else
+			return false;
+	}
+	public static void main(String [] args) {
+		study a = new study(2, 3, 5);
+		study b = new study(2, 3, 40);
+		System.out.println("원 a : " + a);
+		System.out.println("원 b : " + b);
+		if(a.equals(b)) System.out.println("같은 원");
+		else System.out.println("다른 원");			
+	}
 }
+
