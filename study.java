@@ -1810,22 +1810,20 @@ public class study {
 }
 */
 
-public class study{
-	public static void main(String [] args) {
-		java.util.StringTokenizer st = new java.util.StringTokenizer("a=3,b=5,c=6", "=,");
+public class study {
+	public static void main(String[] args) {
+		java.util.StringTokenizer st = new java.util.StringTokenizer("a=3,b=5,c=6",",=");
 		int sum = 0;
-		while(st.hasMoreTokens()) {
+		while (st.hasMoreTokens()) {
 			String next = st.nextToken();
-			try {
-				sum += Int
+			try { // 문자로 된 숫자를 sum에 중첩저장하고 출력 
+				sum += Integer.parseInt(next);
+				System.out.println(next);
+			}  
+			catch(NumberFormatException e) { // 문자열이 숫자와 일치하지 않는 타입의 숫자로 변환시 오류 선언 후 출력만 실행
+				System.out.println(next);
 			}
-			System.out.println(st.nextToken());
-			if (st.nextToken().equals("3") || st.nextToken().equals("5") || st.nextToken().equals("6")) {
-				System.out.println(st.nextToken());
-				int s = Integer.parseInt(st.nextToken()); 
-				sum += s;
-			}
-			System.out.println("합은 = " + sum);
 		}
+		System.out.println("합은 "+sum); // 남은 토큰이 없으면 반복문 탈출 후 출력
 	}
 }
