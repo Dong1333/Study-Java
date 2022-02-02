@@ -1825,7 +1825,7 @@ public class study {
 		}
 		System.out.println("합은 "+sum); // 남은 토큰이 없으면 반복문 탈출 후 출력
 	}
-} */
+} 
 
 public class study {
 	private int x, y, radius;
@@ -1855,4 +1855,4 @@ public class study {
 		else System.out.println("다른 원");			
 	}
 }
-
+*/
