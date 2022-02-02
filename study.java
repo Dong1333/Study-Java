@@ -1,4 +1,7 @@
 package my;
+
+import java.util.Calendar;
+
 // 1~99 사이의 숫자를 입력 받아 3,6,9 게임 진행.  
 // 예) 13 == "박수 짝", 36 == "박수 짝짝"
 /*import java.util.Scanner;
@@ -1850,9 +1853,106 @@ public class study {
 		study a = new study(2, 3, 5);
 		study b = new study(2, 3, 40);
 		System.out.println("원 a : " + a);
-		System.out.println("원 b : " + b);
+		System.out.println("원 b : " + b); 
 		if(a.equals(b)) System.out.println("같은 원");
 		else System.out.println("다른 원");			
 	}
 }
+
+
+
+// Calendar 객체를 생성하여 현재시간이 4시~12시면 아침인사, 오후 6시 이내면 점심 인사, 오후 10시 이내면 저녁인사, 그 이후는 잠자리 인사를 출력
+import java.util.Calendar;
+
+public class study{
+	public static void printCalendar(String msg, Calendar cal) {  // 문자열과, cal이라는 Calendar 객체를 인자로 받는다
+		int hour = cal.get(Calendar.HOUR_OF_DAY);   // 현재 시간을 24시간 기준으로 hour 변수에 저장
+		int minute = cal.get(Calendar.MINUTE); // 현재 분을 minute 변수에 저장
+	
+		
+	System.out.println(msg + "시간은 " + hour + "시 " + minute + "분 입니다. "); // prinfCalendar클래스 호출시 필수(자동)로 출력되는 문자열
+	
+	
+	//조건문 (현재 시간을 저장해논 hour에 따라서 알림 문자열 출력)
+	if(hour >= 4 && hour <= 12 ) {
+	  System.out.println("Good Morning");
+	}
+	else if(hour >= 12 && hour <= 18) {
+	  System.out.println("Afternoon");
+	}
+	else if(hour >= 18 && hour <= 22) {
+	  System.out.println("Good Evening");
+	}
+	else {
+		 System.out.println("Good Night");
+	}
+	
+	}
+   // 메인 메소드 
+	public static void main(String [] args) {
+		Calendar ai = Calendar.getInstance();
+		printCalendar("현재 ", ai);
+		
+	}
+}
+
 */
+
+import java.util.Scanner;
+
+public class study{
+	public static int nowtime(Calendar cal){
+		int second = cal.get(Calendar.SECOND);
+		return second;
+	}
+
+	
+	public static void main(String [] args) {
+		
+		Calendar a = Calendar.getInstance();
+		Calendar b = Calendar.getInstance();
+		
+		String person [] = {"황기태", "이재문"};
+		int score [] = new int [2];
+		String enter;
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("10초에 가까운 사람이 이기는 게임입니다.");
+		
+	    for(int i = 0; i < 2; i++) {
+	    	System.out.print( person[i] + " 시작  <Enter> 키  >>");
+	    	enter = scanner.nextLine();
+	    	
+	    	if(enter != null) {
+	    		System.out.println("현재 초 시간 = " + nowtime(a));
+	    	    System.out.print("10초 예상 후 <Enter> 키  >>");
+	    	    enter = null;
+	    	    enter = scanner.nextLine();
+	    	    System.out.println("현재 초 시간 = " + nowtime(a));
+
+	    	    score[i] = Math.abs(time[0] - time[1]);
+	    	}
+	    }
+	    	
+	    for(int i = 0; i < 2; i++) {
+	    	System.out.print(person[i] + "의 결과 " + score[i] + ", ");
+	    	
+	    	if (i == 1 ) {
+	    		int winner = score[0] - score[1];
+	    		System.out.print("승자는 ");
+	    		if (winner > 0) {
+	    		 System.out.println(person[0]);
+	    		}
+	    		else {
+	    			System.out.println(person[1]);
+	    		}
+	    	}
+	    	
+	    }
+		
+		
+	}
+}
+
+
