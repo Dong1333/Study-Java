@@ -1897,7 +1897,7 @@ public class study{
 }
 
 */
-
+// enter키를 눌러 
 import java.util.Scanner;
 
 public class study{
