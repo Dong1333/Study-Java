@@ -1891,68 +1891,58 @@ public class study{
    // 메인 메소드 
 	public static void main(String [] args) {
 		Calendar ai = Calendar.getInstance();
-		printCalendar("현재 ", ai);
+		printCalendar
+		
+		("현재 ", ai);
 		
 	}
 }
 
 */
-// enter키를 눌러 
 import java.util.Scanner;
+import java.util.Calendar;
+class Person {  // 참가자의 클래스 생성
+	Calendar now = Calendar.getInstance(); // 캘린더 객체 생성
+	Scanner sc = new Scanner(System.in);  // 스캐너 객체 생성
+	private String name, buffer; // 참가자의 이름, 입력 버퍼(게임기준 점수 측정 지점) 담는 문자열 변수
+	private int sec1, sec2; // 첫번째 버퍼, 두번째 버퍼 담는 정수형 변수 
 
-public class study{
-	public static int nowtime(Calendar cal){
-		int second = cal.get(Calendar.SECOND);
-		return second;
+	public Person(String name) { // 매개변수 name을, 맴버 name으로 접근
+		this.name = name;
 	}
 
-	
-	public static void main(String [] args) {
-		
-		Calendar a = Calendar.getInstance();
-		Calendar b = Calendar.getInstance();
-		
-		String person [] = {"황기태", "이재문"};
-		int score [] = new int [2];
-		String enter;
-		
-		Scanner scanner = new Scanner(System.in);
-		
-		System.out.println("10초에 가까운 사람이 이기는 게임입니다.");
-		
-	    for(int i = 0; i < 2; i++) {
-	    	System.out.print( person[i] + " 시작  <Enter> 키  >>");
-	    	enter = scanner.nextLine();
-	    	
-	    	if(enter != null) {
-	    		System.out.println("현재 초 시간 = " + nowtime(a));
-	    	    System.out.print("10초 예상 후 <Enter> 키  >>");
-	    	    enter = null;
-	    	    enter = scanner.nextLine();
-	    	    System.out.println("현재 초 시간 = " + nowtime(a));
+	public int game() {  // game 메소드 생성 *person객체만 접근 가능
+		System.out.print(name+" 시작 <Enter>키  >>");
+		sec1 = enter();  // enter()메소드 호출과 동시에 return값 sec1(첫번째 버퍼 타이밍)에 저장
+		System.out.print("10초 예상 후 <Enter>키  >>");
+		sec2 = enter();  // enter()메소드 호출과 동시에 return값 sec1(두번째 버퍼 타이밍)에 저장
+		if(sec1 < sec2) 
+			return sec2-sec1;
+		else
+			return (60-sec1) + sec2;
+	}
 
-	    	    score[i] = Math.abs(time[0] - time[1]);
-	    	}
-	    }
-	    	
-	    for(int i = 0; i < 2; i++) {
-	    	System.out.print(person[i] + "의 결과 " + score[i] + ", ");
-	    	
-	    	if (i == 1 ) {
-	    		int winner = score[0] - score[1];
-	    		System.out.print("승자는 ");
-	    		if (winner > 0) {
-	    		 System.out.println(person[0]);
-	    		}
-	    		else {
-	    			System.out.println(person[1]);
-	    		}
-	    	}
-	    	
-	    }
-		
-		
+	public int enter() {
+		buffer = sc.nextLine();
+		System.out.println("\t현재 초 시간 = "+ now.get(Calendar.SECOND));
+		return now.get(Calendar.SECOND);
 	}
 }
+public class study  {
+	public static void main(String[] args) {
+		Person person1 = new Person("황기태");
+		Person person2 = new Person("이재문");
+
+		System.out.println("10초에 가까운 사람이 이기는 게임입니다.");
+		int result1 = person1.game();
+		int result2 = person2.game();
+
+		if(Math.abs(result1 - 10) < Math.abs(result2 - 10))
+			System.out.println("황기태의 결과 "+result1+", 이재문의 결과 "+result2+", 승자는 황기태");
+		else
+			System.out.println("황기태의 결과 "+result1+", 이재문의 결과 "+result2+", 승자는 이재문");
+	}
+}
+
 
 
