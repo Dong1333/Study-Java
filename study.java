@@ -1891,18 +1891,19 @@ public class study{
    // 메인 메소드 
 	public static void main(String [] args) {
 		Calendar ai = Calendar.getInstance();
-		printCalendar
-		
-		("현재 ", ai);
+		printCalendar("현재 ", ai);
 		
 	}
 }
 
 */
+
+//경과시간을 맞추는 게임을 작성하라. 다음 예시를 참고하면 <Enter> 키를 입력하면 현재 초 시간을 보여주고 
+//여기서 10초에 더 근접하도록 다음 <Enter> 키를 입력한 사람이 이기는 게임이다.
+
 import java.util.Scanner;
 import java.util.Calendar;
 class Person {  // 참가자의 클래스 생성
-	Calendar now = Calendar.getInstance(); // 캘린더 객체 생성
 	Scanner sc = new Scanner(System.in);  // 스캐너 객체 생성
 	private String name, buffer; // 참가자의 이름, 입력 버퍼(게임기준 점수 측정 지점) 담는 문자열 변수
 	private int sec1, sec2; // 첫번째 버퍼, 두번째 버퍼 담는 정수형 변수 
@@ -1916,28 +1917,29 @@ class Person {  // 참가자의 클래스 생성
 		sec1 = enter();  // enter()메소드 호출과 동시에 return값 sec1(첫번째 버퍼 타이밍)에 저장
 		System.out.print("10초 예상 후 <Enter>키  >>");
 		sec2 = enter();  // enter()메소드 호출과 동시에 return값 sec1(두번째 버퍼 타이밍)에 저장
-		if(sec1 < sec2) 
-			return sec2-sec1;
-		else
-			return (60-sec1) + sec2;
+		if(sec1 < sec2) // 1번째 시간초가 2번째 시간초 보다 낮으면  ex) 12, 46
+			return sec2-sec1; // 2번째 시간초에서 1번째 시간초 빼기  ex) 46 - 12 == 34
+		else  // 1번째 시간초가 2번째 시간초 보다 크면 ex) 56, 3
+			return (60-sec1) + sec2; // (60 - 56) + 3 = 7  *초는 최대값이 60이라 특별한 차이 계산법 사용
 	}
-
-	public int enter() {
-		buffer = sc.nextLine();
-		System.out.println("\t현재 초 시간 = "+ now.get(Calendar.SECOND));
-		return now.get(Calendar.SECOND);
+	
+	public int enter() { // enter(버퍼) 입력시 현재 시간 안내와 동시에 저장하는 메소드
+		buffer = sc.nextLine(); // 입력 받고 buffer 문자열 변수에 저장
+		Calendar now = Calendar.getInstance(); // 캘린더 객체 생성 *생성시 생성한 날짜와 시간정보 저장
+		System.out.println("\t현재 초 시간 = "+ now.get(Calendar.SECOND)); // 캘린더 객체 생성시 저장된 SECOND(시간초)에 접근하여 시간초 출력
+		return now.get(Calendar.SECOND); // 초 값 return (sec ? 변수에 저장)
 	}
 }
-public class study  {
+public class study {  // 메인 메소드
 	public static void main(String[] args) {
-		Person person1 = new Person("황기태");
-		Person person2 = new Person("이재문");
+		Person person1 = new Person("황기태"); // 황기태 person 객체 생성 
+		Person person2 = new Person("이재문"); // 이재문 person 객체 생성
 
 		System.out.println("10초에 가까운 사람이 이기는 게임입니다.");
-		int result1 = person1.game();
-		int result2 = person2.game();
+		int result1 = person1.game(); // 황기태(person 1) game 메소드 접근 후 실행 
+		int result2 = person2.game(); // 이재문(person 1) game 메소드 접근 후 실행 
 
-		if(Math.abs(result1 - 10) < Math.abs(result2 - 10))
+		if(Math.abs(result1 - 10) < Math.abs(result2 - 10)) // 만약 첫번째 참가자(황기태)가 숫자가 적으면(10에 제일 가까우면) 아래 문장 출력 *숫자가 10에 가까울수록 이기는 게임이라 10을 빼고 낮은수로 승패를 나눈다
 			System.out.println("황기태의 결과 "+result1+", 이재문의 결과 "+result2+", 승자는 황기태");
 		else
 			System.out.println("황기태의 결과 "+result1+", 이재문의 결과 "+result2+", 승자는 이재문");
