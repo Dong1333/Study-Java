@@ -1899,7 +1899,7 @@ public class study{
 */
 
 //경과시간을 맞추는 게임을 작성하라. 다음 예시를 참고하면 <Enter> 키를 입력하면 현재 초 시간을 보여주고 
-//여기서 10초에 더 근접하도록 다음 <Enter> 키를 입력한 사람이 이기는 게임이다.
+//여기서 10초에 더 근접하도록 다음 <Enter> 키를 입력한 사람이 이기는 게임이다..
 
 import java.util.Scanner;
 import java.util.Calendar;
