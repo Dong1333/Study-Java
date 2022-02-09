@@ -1944,6 +1944,5 @@ public class study {  // 메인 메소드
 		else
 			System.out.println("황기태의 결과 "+result1+", 이재문의 결과 "+result2+", 승자는 이재문");
 	}
-}
-*/
+} */
 
