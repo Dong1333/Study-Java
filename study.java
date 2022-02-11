@@ -1980,39 +1980,90 @@ public class study{
 		System.out.print("\n 가장 긴 이름은 : " + a.get(longestIndex));
 		scanner.close();
 	}
-}*/
+}
 
 // Id와 tel(전화번호)로 구성되는 Student 클래스를 만들고, 이름을 '키'로 하고 Student 객체를 '값'으로 하는 해시맵을 작성하라.
-
-
 import java.util.*;  // java.util 패키지에 있는 모든 클래스를 임포트
-class student {
+class Student {
 	private int id;
 	private String tel;
 	
-	public student(int id, String tel) {
+	public Student(int id, String tel) {
 		this.id = id;
 		this.tel = tel;
 	}
 	
-	public int getId() {
+	public int getId() {   // Id 반환 메소드
 		return id;
 	}
 	
-	public String getTel() {
+	public String getTel() { // 전화번호 반환 메소드
 		return tel;
 	}
+}
 
 
 public class study{
 	public static void main(String [] args) {
-		// (학생 이름, Student 객체)를 저장하는 해시맵 생성
-		HashMap<String, Student> map = new HashMap<String, Student>();
+
+		HashMap<String, Student> map = new HashMap<String, Student>();  // (학생 이름, Student 객체)를 저장하는 해시맵 생성 
 		map.put("황기태", new Student(1, "010-111-1111")); // 3명의 학생 저장
-		map.put("황기태", new Student(1, "010-111-1111")); // 3명의 학생 저장
-		map.put("황기태", new Student(1, "010-111-1111")); // 3명의 학생 저장
+		map.put("이재문", new Student(2, "010-222-2222")); 
+		map.put("김남윤", new Student(3, "010-333-3333")); 
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		while(true) { // 무한반복
+			System.out.print("검색할 이름 ? ");
+		    String name = scanner.nextLine(); // 사용자로부터 이름 입력 (name에 저장)
+		    if(name.equals("exit")) // 만약 "exit" 입력 시
+		    	break;  // while 문을 벗어나 프로그램 종료
+		    Student student = map.get(name); // 이름(name)에 저장한 이름으로 Student 객체 검색
+		    if(student == null)  // 
+		    	System.out.println(name + "은 없는 사람입니다.");
+		    else
+		    	System.out.println("id : " + student.getId() + ", 전화 : " + student.getTel());
+		}
+		scanner.close();
 	}
 }
+*/
+// Collections 클래스를 활용하여 문자열 정렬, 반대로 정렬, 이진 검색을 실행하는 사례를 살펴보자.
+
+import java.util.*;
+
+public class study {
+	static void printList(LinkedList<String> i) { // 리스트의 요소를 모두 출력하는 메소드
+		
+		Iterator<String> iterator = i.iterator(); // Iterator 객체 리턴
+		while (iterator.hasNext()) { // Iterator 객체에 요소가 있을 때까지 반복
+			String e = iterator.next(); // 다음 요소 리턴
+			String separator;
+			if(iterator.hasNext())
+				separator = "->"; // 마지막 요소가 아니면 "->" 출력
+			else
+				separator = "\n"; // 마지막 요소이면 줄바꿈
+			System.out.print(e + separator);
+		}
+	}
+	
+	public static void main(String [] args) {
+		LinkedList<String> myList = new LinkedList<String>(); // 빈 리스트 생성
+		myList.add("트랜스포머");
+		myList.add("스타워즈");
+		myList.add("매트릭스");
+		myList.add(0,"터미네이터");
+		myList.add(2,"아바타");
+	
+		Collections.sort(myList); // 요소 정렬
+		printList(myList); // 정렬된 요소 출력
+		
+		Collections.reverse(myList); // 요소의 순서를 반대로 구성
+		printList(myList); // 요소 출력
+		
+		int index = Collections.binarySearch(myList,"아바타") + 1;
+		System.out.println("아바타는 " + index + "번째 요소입니다.");
+	}
 }
 
 
