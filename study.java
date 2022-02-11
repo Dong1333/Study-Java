@@ -1938,8 +1938,12 @@ public class study {  // 메인 메소드
 		System.out.println("10초에 가까운 사람이 이기는 게임입니다.");
 		int result1 = person1.game(); // 황기태(person 1) game 메소드 접근 후 실행 
 		int result2 = person2.game(); // 이재문(person 1) game 메소드 접근 후 실행 
+  
 
-		if(Math.abs(result1 - 10) < Math.abs(result2 - 10)) // 만약 첫번째 참가자(황기태)가 숫자가 적으면(10에 제일 가까우면) 아래 문장 출력 *숫자가 10에 가까울수록 이기는 게임이라 10을 빼고 낮은수로 승패를 나눈다
+
+        // 만약 첫번째 참가자(황기태)가 숫자가 적으면(10에 제일 가까우면) 아래 문장 출력
+        // *숫자가 10에 가까울수록 이기는 게임이라 10을 빼고 낮은수로 승패를 나눈다
+		if(Math.abs(result1 - 10) < Math.abs(result2 - 10))
 			System.out.println("황기태의 결과 "+result1+", 이재문의 결과 "+result2+", 승자는 황기태");
 		else
 			System.out.println("황기태의 결과 "+result1+", 이재문의 결과 "+result2+", 승자는 이재문");
@@ -1976,8 +1980,40 @@ public class study{
 		System.out.print("\n 가장 긴 이름은 : " + a.get(longestIndex));
 		scanner.close();
 	}
+}*/
+
+// Id와 tel(전화번호)로 구성되는 Student 클래스를 만들고, 이름을 '키'로 하고 Student 객체를 '값'으로 하는 해시맵을 작성하라.
+
+
+import java.util.*;  // java.util 패키지에 있는 모든 클래스를 임포트
+class student {
+	private int id;
+	private String tel;
+	
+	public student(int id, String tel) {
+		this.id = id;
+		this.tel = tel;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	
+	public String getTel() {
+		return tel;
+	}
+
+
+public class study{
+	public static void main(String [] args) {
+		// (학생 이름, Student 객체)를 저장하는 해시맵 생성
+		HashMap<String, Student> map = new HashMap<String, Student>();
+		map.put("황기태", new Student(1, "010-111-1111")); // 3명의 학생 저장
+		map.put("황기태", new Student(1, "010-111-1111")); // 3명의 학생 저장
+		map.put("황기태", new Student(1, "010-111-1111")); // 3명의 학생 저장
+	}
 }
-*/
+}
 
 
 
