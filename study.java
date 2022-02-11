@@ -2027,7 +2027,6 @@ public class study{
 		scanner.close();
 	}
 }
-*/
 // Collections 클래스를 활용하여 문자열 정렬, 반대로 정렬, 이진 검색을 실행하는 사례를 살펴보자.
 
 import java.util.*;
@@ -2038,18 +2037,20 @@ public class study {
 		Iterator<String> iterator = i.iterator(); // Iterator 객체 리턴
 		while (iterator.hasNext()) { // Iterator 객체에 요소가 있을 때까지 반복
 			String e = iterator.next(); // 다음 요소 리턴
-			String separator;
-			if(iterator.hasNext())
-				separator = "->"; // 마지막 요소가 아니면 "->" 출력
+			String separator; 
+			if(iterator.hasNext()) // 만약 객체에 요소가 끝이 아니면 * hashNext() == 방문할 요소가 남아있으면 true 리턴
+				separator = "->"; // 마지막 요소가 아니면 "->" separator 변수에 저장
 			else
-				separator = "\n"; // 마지막 요소이면 줄바꿈
-			System.out.print(e + separator);
+				separator = "\n"; // 마지막 요소이면 "\n" separator 변수에 저장 
+			System.out.print(e + separator); // 요소 + separator내용 출력
 		}
 	}
 	
 	public static void main(String [] args) {
 		LinkedList<String> myList = new LinkedList<String>(); // 빈 리스트 생성
-		myList.add("트랜스포머");
+		
+		// myList의 요소 추가 과정
+		myList.add("트랜스포머");   
 		myList.add("스타워즈");
 		myList.add("매트릭스");
 		myList.add(0,"터미네이터");
@@ -2065,6 +2066,8 @@ public class study {
 		System.out.println("아바타는 " + index + "번째 요소입니다.");
 	}
 }
+
+*/
 
 
 
