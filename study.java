@@ -2066,7 +2066,6 @@ public class study {
 		System.out.println("아바타는 " + index + "번째 요소입니다.");
 	}
 }
-
 */
 
 
