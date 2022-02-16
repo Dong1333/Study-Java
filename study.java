@@ -2110,54 +2110,55 @@ import java.util.Scanner;
 
 public class study {
 	public static void main(String[] args) {
-		boolean run = true;
-		int studentNum = 0;
-		int[] scores = null;
+		boolean run = true;   // 무한반복을 돌릴 변수(true)
+		int studentNum = 0;  // 학생수를 저장할 변수
+		int[] scores = null;  // 점수를 저장할 배열 변수
 		Scanner scanner = new Scanner(System.in);
-
+          
+		// 무한반복
 		while (run) {
 			System.out.println("----------------------------------------------");
 			System.out.println("1.학생수 | 2.점수입력 | 3.점수리스트 | 4.분석 | 5.종료");
 			System.out.println("----------------------------------------------");
 			System.out.print("선택 > ");
 
-			int selectNo = Integer.parseInt(scanner.nextLine());
+			int selectNo = Integer.parseInt(scanner.nextLine());   // 프로그램 번호를 입력 받아 저장
 
-			if (selectNo == 1) {
-			  System.out.println("학생수 > ");
-			  studentNum =Integer.parseInt(scanner.nextLine());
-			  scores = new int[studentNum];
-			} else if (selectNo == 2) {
-				for(int i = 0; i < scores.length; i++) {
-					System.out.println("scores["+i+"] > ");
-					scores[i] = Integer.parseInt(scanner.nextLine());
+			if (selectNo == 1) {  // 1 입력 (학생수) 
+			  System.out.println("학생수 > "); 
+			  studentNum =Integer.parseInt(scanner.nextLine());  // 학생수 입력 받아 저장
+			  scores = new int[studentNum];  // 입력 했던 학생수 길이의 배열 생성
+			} else if (selectNo == 2) { // 2 입력 (점수 입력)
+				for(int i = 0; i < scores.length; i++) {  // 1(학생수) 에서 입력했던 길이(scores.length)만큼 반복
+					System.out.println("scores["+i+"] > ");  
+					scores[i] = Integer.parseInt(scanner.nextLine());  // 점수로 저장할 숫자 입력
 				}
-			} else if (selectNo == 3) {
-				for(int i = 0; i < scores.length; i++) {
-					System.out.println("scores["+i+"] > " + scores[i]);
+			} else if (selectNo == 3) {  // 3 입력 (점수목록)
+				for(int i = 0; i < scores.length; i++) {   // 학생수 만큼 반복
+					System.out.println("scores["+i+"] > " + scores[i]); // 2(점수입력)에서 점수를 저장한 배열 출력
 				}
-			} else if (selectNo == 4) {
-				int max = 0;
-				int sum = 0;
-				double avg = 0.0;
+			} else if (selectNo == 4) { // 4 입력 (분석) 
+				int max = 0;  // 최대 값 저장할 변수
+				int sum = 0;  // 합계 저장할 변수 *추후 평균값 계산에 사용
+				double avg = 0.0;  // 평균값 저장할 (실수형)변수
 						
 				for(int i = 0; i < scores.length; i++) {
-					sum += scores[i];
-					if(max < scores[i]) {
-						max = scores[i];
+					sum += scores[i];  // 배열에 저장된 점수를 sum에 중첩하여 저장
+					if(max < scores[i]) {  // 만약 현재 최대값이 현재 확인한 배열의 값(점수) 보다 작으면
+						max = scores[i];  // 현재 배열의 값을 최대값으로 대입
 					}
-					avg = (double) sum / scores.length;
+					avg = (double) sum / scores.length;   // 형변환(실수형)한 합계 /(나누기) 학생수(배열 길이) = 평균값
 				}
 				System.out.println("최고 점수 : " + max);
 				System.out.println("평균 점수 : " + avg);
-			} else if (selectNo == 5) {
-				run = false;
+			} else if (selectNo == 5) {  // 5 입력 (종료)
+				run = false;    // run 변수를 true(무한반복)에서 fasle로 변경
 			}
 		}
 
 		System.out.println("프로그램 종료");
 	}
-}*/
+}
 
 
 
