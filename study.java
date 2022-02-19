@@ -2159,8 +2159,6 @@ public class study {
 		System.out.println("프로그램 종료");
 	}
 }
-
-
 */
 
 
