@@ -1,7 +1,5 @@
 package my;
 
-import java.util.Calendar;
-
 // 1~99 사이의 숫자를 입력 받아 3,6,9 게임 진행.  
 // 예) 13 == "박수 짝", 36 == "박수 짝짝"
 /*import java.util.Scanner;
@@ -2159,8 +2157,8 @@ public class study {
 		System.out.println("프로그램 종료");
 	}
 }
-
 */
+
 
 
 
