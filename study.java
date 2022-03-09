@@ -2100,7 +2100,7 @@ public class study {
 		System.out.println("avg : " + avg);
 	}
 }
-
+*/
 
 // 다음은 키보드로부터 학생 수와 각 학생들의 점수를 입력받아서, 최고 점수 및 평균 점수를 구하는 프로그램입니다.
 // 실행결과를 보고 알맞게 작성해보세요.
@@ -2155,10 +2155,10 @@ public class study {
 		}
 
 		System.out.println("프로그램 종료");
+		System.out.println();
 	}
 }
 
-*/
 
 
 
