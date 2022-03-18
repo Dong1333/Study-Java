@@ -1,5 +1,7 @@
 package my;
 
+import java.util.Scanner;
+
 // 1~99 사이의 숫자를 입력 받아 3,6,9 게임 진행.  
 // 예) 13 == "박수 짝", 36 == "박수 짝짝"
 /*import java.util.Scanner;
@@ -2100,7 +2102,6 @@ public class study {
 		System.out.println("avg : " + avg);
 	}
 }
-*/
 
 // 다음은 키보드로부터 학생 수와 각 학생들의 점수를 입력받아서, 최고 점수 및 평균 점수를 구하는 프로그램입니다.
 // 실행결과를 보고 알맞게 작성해보세요.
@@ -2160,7 +2161,113 @@ public class study {
 }
 
 
+public class study {
+	public static void main (String[] args) {
+		int a = 3, b = 5;
+		
+		System.out.println("두 수의 차는 " + ((a > b) ? (a - b) : (b-a)));
+	}
+}
 
 
+public class study {
+	public static void main(String [] args) {
+		short a = (short)0x55ff;
+		short b = (short)0x00ff;
+		
+		// 비트 연산
+		System.out.printf("%04x\n", (short)(a & b)); // 비트 AND
+		System.out.printf("%04x\n", (short)(a | b)); // 비트 OR
+		System.out.printf("%04x\n", (short)(a ^ b)); // 비트 XOR
+		System.out.printf("%04x\n", (short)(~a)); // 비트 NOT
+		
+		byte c = 20; // 0x14
+		byte d = -8; // 0xf8
+		
+		// 시프트 연산
+		System.out.println("[시프트 연산 결과]");
+		System.out.println(c << 2); // c를 2비트 왼쪽 시프트
+		System.out.println(c >> 2); // c를 2비트 오른쪽 시프트, 양수이므로 0 삽입
+		System.out.println(d >> 2); // d를 2비트 오른쪽 시프트, 음수이므로 1 삽입
+		System.out.printf("%x\n", (d >>> 2)); // d를 2비트 오른쪽 시프트, 0 삽입
+	}
+}
+
+public class study {
+	public static void main(String [] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("점수를 입력하세요(0~100):");
+		int score = scanner.nextInt();
+
+		System.out.println("학년을 입력하세요(1~4):");
+		int year = scanner.nextInt();
+		
+		if(score >= 60) { // 60점 이상
+			if(year != 4)
+				System.out.println("합격");
+			else if(score >= 70 )
+				System.out.println("합격");
+			
+			else
+				System.out.println("불합격!");
+		}
+		else
+			System.out.println("불합격!");
+	
+		scanner.close();
+		
+	}
+}
+*/
+import java.util.Scanner;  // 스캐너 클래스 사용 가능
+import java.util.Random;   // 랜덤 클래스 사용 가능
+
+public class study{
+	public static void main(String args[]) {
+		Scanner scanner = new Scanner(System.in);
+		
+		while(true) {  // 반복문 생성 (true)를 사용하여 무한반복 진행
+		Random r = new Random();
+		
+		// 한 게임이 끝나면 변경된 변수값들을 초기화 시켜야 함으로 첫 반복문에  초기값 지정 
+		int n = r.nextInt(100); // 0~99까지의 임의의수 생성 후  'n'변수의 저장
+		int x = 0, y = 99; // 수의 범위를 담아줄 변수 x(최저값), y(최대값) 선언
+		int count = 1; // 도전 횟수를 담을 count 변수 선언
+		
+		System.out.println("숨어있는 숫자를 찾아 보세요!");   // 첫 게임 진행
+		System.out.println(x +"에서 ~ "+ y+"사이의 숨어있습니다."); // 최소값(x) ~ 최대값(y) 안내
+		System.out.print(count +"번째 도전! >> ");
+		
+	    int num = scanner.nextInt(); // 첫 탐색 숫자 num 변수의 저장
+		while(num != n) { // num과 n이 같아지면 탈출.  num과 n이 같지 않으면 반복
+			count ++; // 이 반복문으로 들어오는 순간 2번째 도전이므로 count 증가
+			
+			if(num > 0 && num < n){ // 도전(탐색)숫자가 0보다 크고, 숨은 숫자(랜덤 수)보다 작으면 실행
+		    	System.out.println("UP! \n"); // 숨겨진 숫자는 도전 숫자보다 위에있음을 알림
+		    	if(num > x ) // 범위 외 (안내된 최저값 보다 적은) 숫자를 입력시 x값 수정없음.
+			    	x = num;
+		    }
+		    else if(num < 100 && num > n) {
+		    	System.out.println("DOWN! \n");
+		    	if(num < y ) // 범위 외 (안내된 최대값 보다 큰) 숫자를 입력시 y값 수정없음.
+		    	y = num; // 탐색 숫자의 최대값이 갑소되면 y(최대값)수정
+		    }
+			
+			System.out.println(x +"에서 ~ "+ y +"사이의 숨어있습니다."); // 수정된 최소값 ~ 최대값 안내
+			System.out.print(count +"번째 탐색 숫자는 >> ");
+		    num = scanner.nextInt(); // 숫자를 찾지 못했음으로 다시 도전.
+		}
+		//첫 반복문 탈출(숫자 찾기 성공), 2번째 반복문(게임실행중) 진행중
+	   System.out.println("\n축하합니다 " +count+"번 도전 끝에 숨겨진 숫자를 찾았습니다!!");
+	   System.out.print("숫자 찾기 게임을 다시 진행 하시겠습니까? (y/n) >>> "); // 게임 종료 여부 확인
+	   String text = scanner.next(); // 종료여부 값 저장
+	   if(text.equals("n")){ // 만약 "n"입력시 break문을 이용하여 게임종료(2번째 반복문 종료)
+		   break;
+	   }
+		}
+	  System.out.print("\n숫자 찾기 게임을 종료하겠습니다. \n다음에 또 이용해주세요!");
+	}
+}
 
 
