@@ -2219,7 +2219,7 @@ public class study {
 		
 	}
 }
-*/
+
 import java.util.Scanner;  // 스캐너 클래스 사용 가능
 import java.util.Random;   // 랜덤 클래스 사용 가능
 
@@ -2255,7 +2255,7 @@ public class study{
 		    }
 			
 			System.out.println(x +"에서 ~ "+ y +"사이의 숨어있습니다."); // 수정된 최소값 ~ 최대값 안내
-			System.out.print(count +"번째 탐색 숫자는 >> ");
+			System.out.print(count +"번째 도전! 탐색 숫자는 >> ");
 		    num = scanner.nextInt(); // 숫자를 찾지 못했음으로 다시 도전.
 		}
 		//첫 반복문 탈출(숫자 찾기 성공), 2번째 반복문(게임실행중) 진행중
@@ -2269,5 +2269,32 @@ public class study{
 	  System.out.print("\n숫자 찾기 게임을 종료하겠습니다. \n다음에 또 이용해주세요!");
 	}
 }
+*/
+
+public class study {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("정수를 입력 하여 주세요.");
+		int num = sc.nextInt();
+		System.out.println("약수들 중 몇 번째로 작은수를 구할지 입력하시오.");
+		int rank = sc.nextInt();
+		
+		int divisor [] = new int [num];
+		int count = 0;
+		
+		for (int i = 1; i <= num; i++) {
+			int quotient = num % i;
+			if (quotient == 0) {
+				divisor[count] = i;
+			//	System.out.println("배열"+ divisor[count]+ "번째에 숫자 "+ i+"가  들어갔습니다."); 
+				count++;
+			}
+		}
+		System.out.println(rank + "번째로 작은 약수는 "+ divisor[rank-1]);
+	}
+}
+
+
 
 
