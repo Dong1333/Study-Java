@@ -2269,7 +2269,6 @@ public class study{
 	  System.out.print("\n숫자 찾기 게임을 종료하겠습니다. \n다음에 또 이용해주세요!");
 	}
 }
-*/
 
 public class study {
 	public static void main(String[] args) {
@@ -2286,15 +2285,34 @@ public class study {
 		for (int i = 1; i <= num; i++) {
 			int quotient = num % i;
 			if (quotient == 0) {
-				divisor[count] = i;
-			//	System.out.println("배열"+ divisor[count]+ "번째에 숫자 "+ i+"가  들어갔습니다."); 
+				divisor[count] = i; 
 				count++;
 			}
 		}
 		System.out.println(rank + "번째로 작은 약수는 "+ divisor[rank-1]);
 	}
 }
+*/
 
+
+public class study {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int num = sc.nextInt();
+		
+		int result[] = new int [num];
+		
+		for(int i = 0; num >= 1 ; i++) {
+			result[i] = num % 2;
+			num = num / 2;	
+			if(result[i] == 1) {
+				System.out.print(i + " ");
+			}
+		}
+		sc.close();
+	}
+}
 
 
 
