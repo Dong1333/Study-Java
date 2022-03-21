@@ -2292,9 +2292,7 @@ public class study {
 		System.out.println(rank + "번째로 작은 약수는 "+ divisor[rank-1]);
 	}
 }
-*/
-
-
+ // 문제 2진수 구하기
 public class study {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -2314,5 +2312,77 @@ public class study {
 	}
 }
 
+*/
 
+interface Stack {
+	int length();
+	int capcity();
+	String pop();
+	boolean push(String val);
+}
 
+class StringStack implements Stack {
+	Scanner sc = new Scanner(System.in);
+	
+	String array [] = new String[capcity()];
+	
+	public int start() {
+		System.out.println("총 스택 저장 공간의 크기 입력 >>> ");
+		
+		int arrlong = sc.nextInt();
+		
+		return arrlong;
+	}
+	
+	@Override
+	public int length() {
+		int count = 0;
+		
+		System.out.println("현재 스택에 저장된 실수의 개수는");
+		for(int i = 0; i <capcity() ; i++) {
+			if (array[i] != null) {
+				count++;
+			}
+		}
+		
+		return count;
+	}
+
+	@Override
+	public int capcity() {
+		int count = 0;
+		
+		System.out.println("스택의 전체 저장 가능한 개수는 ");
+		
+		for(int i = 0; i < start(); i++) {
+			if (array[i] == null) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	@Override
+	public String pop() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean push(String val) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+}
+
+public class study {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		StringStack st = new StringStack();
+		
+	
+		
+		
+	}
+}
