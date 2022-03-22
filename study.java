@@ -2312,7 +2312,6 @@ public class study {
 	}
 }
 
-*/
 
 interface Stack {
 	int length();
@@ -2326,7 +2325,7 @@ class StringStack implements Stack {
 	
 	String array [] = new String[capcity()];
 	
-	public int start() {
+	public int set() {
 		System.out.println("총 스택 저장 공간의 크기 입력 >>> ");
 		
 		int arrlong = sc.nextInt();
@@ -2334,17 +2333,32 @@ class StringStack implements Stack {
 		return arrlong;
 	}
 	
+	public void start() {
+		while(true) {
+			int i = 0;
+			
+			System.out.println("문자열 입력 >>> ");
+			array[i] = sc.nextLine();
+			i++;
+			
+			if(i == set()) {
+				System.out.println("스택이 꽉 차서 푸시 불가!");
+				break;
+			}
+		}
+	}
+	
 	@Override
 	public int length() {
 		int count = 0;
 		
 		System.out.println("현재 스택에 저장된 실수의 개수는");
-		for(int i = 0; i <capcity() ; i++) {
+		
+		for(int i = 0; i < set() ; i++) {
 			if (array[i] != null) {
 				count++;
 			}
 		}
-		
 		return count;
 	}
 
@@ -2354,7 +2368,7 @@ class StringStack implements Stack {
 		
 		System.out.println("스택의 전체 저장 가능한 개수는 ");
 		
-		for(int i = 0; i < start(); i++) {
+		for(int i = 0; i < set(); i++) {
 			if (array[i] == null) {
 				count++;
 			}
@@ -2364,14 +2378,25 @@ class StringStack implements Stack {
 
 	@Override
 	public String pop() {
-		// TODO Auto-generated method stub
-		return null;
+		while(true) {
+			int i = 0;
+			
+			System.out.println("문자열 입력 >>> ");
+			String a = sc.nextLine();
+			array[i] = a
+			i++;
+			
+			if(i == set()) {
+				System.out.println("스택이 꽉 차서 푸시 불가!");
+				push(a);
+			}
+		return array[i];
 	}
 
 	@Override
 	public boolean push(String val) {
-		// TODO Auto-generated method stub
-		return false;
+		System.out.println("톱에 저장된 실수 입니다. >>" +  val);
+		return true;
 	}
 }
 
@@ -2381,8 +2406,130 @@ public class study {
 		
 		StringStack st = new StringStack();
 		
-	
+		st.set();
+		return st.start();
 		
 		
 	}
 }
+class Point {
+	private int x, y;
+	
+	public Point(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+	
+	public int getX() {return x;}
+	public int getY() {return y;}
+	
+	protected void move(int x, int y){
+		this.x = x;
+		this.y = y;
+	}
+	
+}
+
+class ColorPoint extends Point {
+
+	private String color = "black";
+	
+	public ColorPoint() {
+		super(0,0);
+	}
+	
+	public ColorPoint(int x, int y) {
+		super(x, y);
+	}
+	
+	public void setXY(int x, int y) {
+		move(x,y);
+	}
+	
+	public String getColor() {
+		return this.color;
+	}
+	
+	public void setColor(String color) {
+		this.color = color;
+	}
+	
+	public String toString() {
+		return getColor() +"색의 " + "(" + super.getX() + "," + super.getY()+ ")";
+	}
+}
+
+
+public class study {
+	public static void main(String[] args) {
+		ColorPoint zeroPoint = new ColorPoint(); 
+		System.out.println(zeroPoint.toString() + "입니다.");
+		
+		ColorPoint cp = new ColorPoint(10, 10);
+		cp.setXY(5, 5);
+		cp.setColor("RED");
+		System.out.println(cp.toString()+"입니다.");
+	}
+}
+*/
+
+class Point {
+	private int x, y;
+	
+	public Point(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+	
+	public int getX() {return x;}
+	public int getY() {return y;}
+	
+	protected void move(int x, int y){
+		this.x = x;
+		this.y = y;
+	}
+	
+}
+
+class Point3D extends Point {
+
+	private int z;
+	public Point3D(int x, int y, int z) {
+		super(x, y);
+		this.z = z;
+	}
+	
+	public String toString() {
+		return "(" + getX() + "," +  getY() + "," + z+  ")의 점 ";
+	}
+	
+	protected void move(int x, int y, int z) {
+		move(x,y);
+		this.z = z;
+	}
+	
+	public void moveUp() {
+		this.z = this.z + 1;
+	}
+	
+	public void moveDown() {
+		this.z = this.z - 1;
+	}	
+}
+
+public class study {
+	public static void main(String[] args) {
+		Point3D p = new Point3D(1,2,3); 
+		System.out.println(p.toString() + "입니다.");
+		
+		p.moveUp();
+		System.out.println(p.toString() + "입니다.");
+		p.moveDown();
+		p.move(10, 10);
+		System.out.println(p.toString() + "입니다.");
+		
+		p.move(100, 200, 300);
+		System.out.println(p.toString() + "입니다.");	
+	}
+}
+
