@@ -2544,7 +2544,7 @@ public class study {
 문자열 입력 >> smile
 문자열 입력 >> happy
 스택이 꽉 차서 푸시 불가!
-문자열 입력 >> 그만
+문자열 입력 >> _
 스택에 저장된 모든 문자열 팝 : smile sunny hello 
 */
 
@@ -2583,7 +2583,7 @@ class StringStack implements Stack {
 
 	@Override
 	public String pop() {
-		int top = 0;
+		String a;
 		for(int i = 0; i < n; i++)
 			if(arr[i] == null)
 				top = i;
@@ -2596,9 +2596,17 @@ class StringStack implements Stack {
 
 	@Override
 	public boolean push(String val) {
-		return false;
+		for(int i = 0; i < n; i++) {
+			if(arr[i] == null)
+				return true;
+			else
+				
+				return false;
+		}
+
 	}	
-}
+}	
+
 
 
 public class study{
@@ -2612,10 +2620,16 @@ public class study{
 		while(true) {
 			System.out.println("문자열 입력 >>> ");
 			String word = sc.nextLine();
-			if(st.push(word) == false) {
+			if(st.push(word) == true) {
+				st.pop();
 				break;
 			}	
 		}
 	}
 }
+
+
+int¡
+
+
 
