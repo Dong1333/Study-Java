@@ -1,5 +1,6 @@
 package my;
 
+import java.util.Random;
 import java.util.Scanner;
 
 // 1~99 사이의 숫자를 입력 받아 3,6,9 게임 진행.  
@@ -2537,7 +2538,7 @@ public class study {
 다음 Stack 인터페이스를 상속받아 실수를 저장하는 StringStack 클래스를 구현하라.
 
 그리고 다음 실행 사례와 같이 작동하도록 StackApp 클래스에 main() 메소드를 작성하라.
-/*
+
 총 스택 저장 공간의 크기 입력 >> 3
 문자열 입력 >> hello
 문자열 입력 >> sunny
@@ -2546,7 +2547,6 @@ public class study {
 스택이 꽉 차서 푸시 불가!
 문자열 입력 >> _
 스택에 저장된 모든 문자열 팝 : smile sunny hello 
-*/
 
 import java.util.Scanner;
 
@@ -2627,9 +2627,48 @@ public class study{
 		}
 	}
 }
+*/
 
-
-int¡
-
+public class study {
+	public static void main(String args[]) {
+		
+		String cm = null;
+		Random r = new Random();
+		Scanner sc = new Scanner(System.in);
+		
+		while(true) {
+			int n = r.nextInt(3);
+				switch(n){
+				case 1 :
+				cm = "가위";
+				break;
+				case 2 : 
+				cm = "바위";
+				break;
+				case 3 :
+				cm = "보";
+				break;
+				}
+				
+		System.out.println("가위 바위 보 게임입니다. 가위, 바위, 보 중에서 입력하세요.");
+		System.out.println("입력 >> ");	
+		String my = sc.nextLine();
+				
+		System.out.println("나는 "+ my + " 컴퓨터는 " + cm + "를 냈습니다.");
+		
+		if(my == cm) {
+			System.out.println("비겼다.");
+		}
+		else if((my.equals("가위") && cm.equals("바위")) || (my.equals("바위") && cm.equals("보")) || (my.equals("보") && cm.equals("가위"))) {
+			System.out.println("졌다 ㅠ_ㅠ");
+		}
+		else {
+			System.out.println("이겼다! ^^");
+		}
+				
+		
+		}
+	}
+}
 
 
