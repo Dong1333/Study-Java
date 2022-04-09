@@ -2639,53 +2639,129 @@ public class study {
 		while(true) {
 			int n = r.nextInt(3);
 				switch(n){
-				case 1 :
+				case 0 :
 				cm = "가위";
 				break;
-				case 2 : 
+				case 1 : 
 				cm = "바위";
 				break;
-				case 3 :
+				case 2 :
 				cm = "보";
 				break;
 				}
-				
+		
+		System.out.println("서동근의 가위 바위 보 게임");
 		System.out.println("가위 바위 보 게임입니다. 가위, 바위, 보 중에서 입력하세요.");
-		System.out.println("입력 >> ");	
+		System.out.print("입력 >> ");	
 		String my = sc.nextLine();
 				
-		System.out.println("나는 "+ my + " 컴퓨터는 " + cm + "를 냈습니다.");
+
 		
-		if(my == cm) {
+		if(my.equals("그만")) {
+			System.out.println("게임을 종료합니다...");
+			break;
+		}
+		else if((my.equals("가위") && cm.equals("가위")) || (my.equals("바위") && cm.equals("바위")) || (my.equals("보") && cm.equals("보"))) {
+			System.out.println("나는 "+ my + " 컴퓨터는 " + cm + "를 냈습니다.");
 			System.out.println("비겼다.");
 		}
 		else if((my.equals("가위") && cm.equals("바위")) || (my.equals("바위") && cm.equals("보")) || (my.equals("보") && cm.equals("가위"))) {
+			System.out.println("나는 "+ my + " 컴퓨터는 " + cm + "를 냈습니다.");
 			System.out.println("졌다 ㅠ_ㅠ");
 		}
-		else {
+		else if((my.equals("가위") && cm.equals("보")) || (my.equals("바위") && cm.equals("가위")) || (my.equals("보") && cm.equals("바위"))) {
+			System.out.println("나는 "+ my + " 컴퓨터는 " + cm + "를 냈습니다.");
 			System.out.println("이겼다! ^^");
+
 		}
-				
+		else if(my != "가위" && my != "바위" && my != "보") {
+			System.out.println("잘못된 값을 입력하였습니다.");
+			continue;
+		}
+	}
+	}
+}
 		
-		}
+class Circle{
+	int radius;
+	String name;
+	
+	public Circle() {
+		radius = 1; 
+		name = "";
+	}
+	
+	public Circle(int r, String n) {
+		radius = r; 
+		name = n;
+	}
+	public double getArea() {
+		return 3.14 * radius * radius;
 	}
 }
 
-
-for(int num = 1; num <= 100; num++) {
-	
-	int ten = num % 10;
-	int one = num / 10;
-	
-	out.print(num);
-    if(ten == 3 || ten == 6 || ten == 9) {
-    	 out.print( " 짝 " );
-    }
-    if(one == 3 || one == 6 || one == 9){
-    	out.print(" 짝 " );
-    }
-    out.print("<br>");
-
+public class study{
+	public static void main(String[] args) {
+		Circle pizza = new Circle(10, "자바피자");
+		
+		double area = pizza.getArea();
+		System.out.println(pizza.name + "의 면적은 " + area);
+		
+		Circle donut = new Circle();
+		donut.name = "도넛피자";
+		area = donut.getArea();
+		System.out.println(donut.name + "의 면적은 " + area);
+	}
 }
-*/
+
+import java.util.Scanner;
+
+class Rectangle {
+	int width;
+	int height;
+
+	public int getArea() {
+		return width * height;
+	}
+}
+
+public class study {
+	public static void main(String[] args) {
+		Rectangle rect = new Rectangle(); // 객체 생성
+		Scanner scanner = new Scanner(System.in);
+		System.out.print(">> ");
+		rect.width = scanner.nextInt();
+		rect.height = scanner.nextInt();
+		System.out.println("사각형의 면적은 " + rect.getArea());
+		scanner.close();
+	}
+}*/
+public class study {
+	int radius;
+	String name;
+
+	public Circle() { // 매개 변수 없는 생성자
+		radius = 1;
+		name = ""; // radius의 초기값은 1
+	}
+
+	public Circle(int r, String n) { // 매개 변수를 가진 생성자
+		radius = r;
+		name = n;
+	}
+
+	public double getArea() {
+		return 3.14 * radius * radius;
+	}
+
+	public static void main(String[] args) {
+		Circle pizza = new Circle(10, "자바피자"); // Circle 객체 생성, 반지름 10
+		double area = pizza.getArea();
+		System.out.println(pizza.name + "의 면적은 " + area);
+		Circle donut = new Circle(); // Circle 객체 생성, 반지름 1
+		donut.name = "도넛피자";
+		area = donut.getArea();
+		System.out.println(donut.name + "의 면적은 " + area);
+	}
+}
 
